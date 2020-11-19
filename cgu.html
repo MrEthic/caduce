@@ -1,0 +1,144 @@
+<html>
+<head>
+	<!----Caractères classiques pour les sites web (en UTF-8 )--->
+    <meta charset="UTF-8">	
+	 
+
+     <!---------------------------------LIEN BOOTSTRAP CSS------------------------------------------------->
+	 <!------------------------------Permet d'exploiter les fonctions que propose le framework Bootstrap --->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	
+	<!-----------------Adapater  Affichage sur différents écrans (téléphone, tablettes, pc)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Nom du fichier CSS (à mettre dans le même dossier le fichier html et css) -->
+    <link rel="stylesheet" href="style_faq.css">
+	<!--- Importation d'une librairie JavaScript pour faire les transitions de la barre --->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<!-----librairie javascript pour utiliser la fonction toggleAction -------------->
+	<script type="text/javascrip" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	
+	
+	
+</head>
+
+
+
+
+	<!---------------------Corps du site web -------------------------------->
+<body>
+
+    <!--------------------------------Barre de navigation ----------------------->
+  <nav>
+    <div class="wrapper">
+	    <!-------------------Insertion du logo dans la barre de navigation--------------------------->
+           <img id="sport" src="images/logo.png" style="float:right;width:50px;height:50px;">
+
+	  
+	  <!---------------input type radio pour ouvrir/fermer barre de navigation lorsqu'on rétrécit l'écran ----------------------------->
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+	  
+	 <!----- représente une liste d'éléments sans ordre particulier. Il est souvent représenté par une liste à puces------>	
+      <ul class="nav-links">
+	    <!----------------------fas fa times est une icône en forme de croix ------------------------------>
+		<!---------------------classe nommée btn close-btn déclarée en haut-------------------------------->
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+		
+        <li><a href="accueil.html">Accueil</a></li>
+    
+		<!---L'élément HTML <li> est utilisé pour représenter un élément dans une liste.--->
+		<!---Il doit être contenu dans un élément parent : une liste ordonnée (<ol>) ou bien une liste non ordonnée (<ul>) --->
+        <li>
+          <a href="connexion.html" class="desktop-item">Mon compte</a>
+          <input type="checkbox" id="showDrop">
+		  <!----------------Supprimer la ligne du dessous fera disparaître la rubrique mon compte lorsqu'on rétrécit l'écran--------->
+          <label for="showDrop" class="mobile-item">Mon compte</label>
+          <ul class="drop-menu">
+            <li><a href="#">Mon Profil</a></li>
+            <li><a href="#">Clients</a></li>
+            <li><a href="#">Gestionnaire profils</a></li>
+            <li><a href="#">Gestionnaire capteurs</a></li>
+			<li><a href="#">Messagerie</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="FAQ.html">FAQ</a></li>
+		
+      </ul> <!---Fin de la classe nav-links qui représente tout le contenu de la barre de navigation--->
+	  
+	  
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div> <!--Fin de la balise div class="wrapper"  ou du conteneur---->
+  </nav>
+   <!------------------------------Fin de la partie Barre de navigation -------------------------------->
+
+   
+   
+   
+   <!-------------------------------Partie conditions générales d'utilisation---------------------------> 
+
+    <div class="container">
+	
+	<!---------- Balise h2 pour écrire en grand le titre ---->
+	<p><b>Article I </b>: Objet</p>
+
+Les présentes CGU ou Conditions Générales d’Utilisation encadrent juridiquement l’utilisation des services du site lapetiteperle (ci-après dénommé « le site »).
+
+Constituant le contrat entre la société Infinite Measure, l’Utilisateur, l’accès au site doit être précédé de l’acceptation de ces CGU. L’accès à cette plateforme signifie l’acceptation des présentes CGU. <br><br>
+
+<p><b>Article II </b>: Mentions légales </p>
+
+L’édition du site Caducée.com est assurée par la société 4DGT inscrite au RCS sous le numéro 259 260 261, dont le siège social est localisé au 18 Rue Dame des Champs à Paris, 75 006.
+
+Le site est hebergé par la société DC2SCALE dont le siège se situe à Vélizy Siret (SIREN : 88264411500017 )<br><br>
+
+<p><b>Article III </b>:  Accès au site </p>
+
+Le site Caducee permet d’accéder gratuitement aux services suivants :
+
+<p>-consulter les résultats de mesure</p>
+<p>-Modifier ses informations dans son profil</p>
+Le site est accessible gratuitement depuis n’importe où par tout utilisateur disposant d’un accès à Internet. Tous les frais nécessaires pour l’accès aux services (matériel informatique, connexion Internet…) sont à la charge de l’utilisateur.
+
+L’accès aux services dédiés aux membres s’effectue à l’aide d’un identifiant et d’un mot de passe.
+
+Pour des raisons de maintenance ou autres, l’accès au site peut être interrompu ou suspendu par l’éditeur sans préavis ni justification. <br><br>
+<p><b>Article IV </b>: Collecte des données </p>
+
+Pour la création du compte de l’Utilisateur, la collecte des informations au moment de l’inscription sur le site est nécessaire et obligatoire. Conformément à la loi n°78-17 du 6 janvier relative à l’informatique, aux fichiers et aux libertés, la collecte et le traitement d’informations personnelles s’effectuent dans le respect de la vie privée.
+
+Suivant la loi Informatique et Libertés en date du 6 janvier 1978, articles 39 et 40, l’Utilisateur dispose du droit d’accéder, de rectifier, de supprimer et d’opposer ses données personnelles. L’exercice de ce droit s’effectue par :
+
+Le formulaire de contact, Son espace client. <br><br>
+<p><b>Article V </b>: Responsabilité </p>
+
+Bien que les informations publiées sur le site soient réputées fiables, le site se réserve la faculté d’une non-garantie de la fiabilité des sources.
+
+Les informations diffusées sur le site Caducée sont présentées à titre purement informatif et sont sans valeur contractuelle. En dépit des mises à jour régulières, la responsabilité du site ne peut être engagée en cas de modification des dispositions administratives et juridiques apparaissant après la publication. Il en est de même pour l’utilisation et l’interprétation des informations communiquées sur la plateforme.
+
+Le site décline toute responsabilité concernant les éventuels virus pouvant infecter le matériel informatique de l’Utilisateur après l’utilisation ou l’accès à ce site.
+
+Le site ne peut être tenu pour responsable en cas de force majeure ou du fait imprévisible et insurmontable d’un tiers.
+
+La garantie totale de la sécurité et la confidentialité des données n’est pas assurée par le site. Cependant, le site s’engage à mettre en œuvre toutes les méthodes requises pour le faire au mieux. <br><br>
+<p><b>Article VI</b>: Liens hypertextes </p>
+
+
+Le site peut être constitué de liens hypertextes. En cliquant sur ces derniers, l’Utilisateur sortira de la plateforme. Cette dernière n’a pas de contrôle et ne peut pas être tenue responsable du contenu des pages web relatives à ces liens. <br><br>
+
+<p><b>Article VII </b>: Durée du contrat </p>
+
+Le présent contrat est valable pour une durée indéterminée. Le début de l’utilisation des services du site marque l’application du contrat à l’égard de l’Utilisateur. <br><br>
+<p><b>Article VIII </b>: Droit applicable et juridiction compétente </p>
+
+Le présent contrat est soumis à la législation française. L’absence de résolution à l’amiable des cas de litige entre les parties implique le recours aux tribunaux français compétents pour régler le contentieux.
+	</p>
+	</div> <!--- Fin container --->  
+	 
+	 
+	 
+	 
+  
+</body>
+    
+</html> <!--------- Fin de la balise HTML -------->

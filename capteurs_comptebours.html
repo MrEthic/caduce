@@ -1,0 +1,149 @@
+<html>
+<head>
+   	<!-----------------Adapater  Affichage sur différents écrans (téléphone, tablettes, pc)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Nom du fichier CSS (à mettre dans le même dossier le fichier html et css) -->
+    <link rel="stylesheet" href="style_connexion.css">
+	<!--- Importation d'une librairie JavaScript pour faire les transitions de la barre --->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	
+	
+	
+	
+	<!---Code JavaScript--> 
+ <script type="text/javascript">
+	//déclaration + définitions des variables globales
+	var time = 0;
+	//var running est une variable booléenne (1 pour vrai et 0 pour faux )
+	var running = 0;
+	
+	
+function startPause(){
+ if(running == 0){
+  running = 1;
+  //fonction d'incrémentation du temps définie plus bas
+ increment();
+ //récupération des id définies sur HTML, lorsqu'on appuie sur démarrer
+ //le bouton change de couleur (couleur rouge )et le texte passe de démarrer à Pause
+ document.getElementById("start").innerHTML = "Pause";
+ document.getElementById("startPause").style.backgroundColor = "red"; 
+ document.getElementById("startPause").style.borderColor = "red";
+ }
+ else{
+  running = 0;
+  //récupération des id définies sur HTML, lorsqu'on appuie sur démarrer
+  //le bouton change de couleur (couleur rouge )et le texte passe de démarrer à Pause
+ document.getElementById("start").innerHTML = "Resume"; 
+ document.getElementById("startPause").style.backgroundColor = "green"; 
+ document.getElementById("startPause").style.borderColor = "green";
+ }
+ 
+ 
+}
+function reset(){
+ running = 0;
+ time = 0;
+ document.getElementById("start").innerHTML = "Start";
+ //on remet le temps à zéro en modifiant le texte d'ou l'emploi du .innerHTML
+ document.getElementById("output").innerHTML = "0:00:00:00";
+ //le bouton démarrer redevient vert
+ document.getElementById("startPause").style.backgroundColor = "green"; 
+ document.getElementById("startPause").style.borderColor = "green";
+}
+
+
+function increment(){
+ if(running == 1){
+  setTimeout(function(){
+   time++;
+   //La fonction Math.floor(x) renvoie le plus grand entier qui est inférieur ou égal à un nombre x.
+   var mins = Math.floor(time/10/60);
+   var secs = Math.floor(time/10 % 60);
+   var hours = Math.floor(time/10/60/60); 
+   var tenths = time % 10;
+   if(mins < 10){
+    mins = "0" + mins;
+   } 
+   if(secs < 10){
+    secs = "0" + secs;
+   }
+   //concaténation des variables définies (heure/minute/seconde)
+   document.getElementById("output").innerHTML = hours + ":" + mins + ":" + secs + ":" + tenths + "0";
+   increment();
+  },100)  //fin de la fonction setTimeout
+ }
+}  //fin de la fonction increment
+     
+ </script> <!---------Fin du code JavaScript---------------------->
+</head>
+
+
+
+	<!---------------------Corps du site web -------------------------------->
+<body>
+  <nav>
+    <div class="wrapper">
+	    <!-------------------Insertion du logo dans la barre de navigation--------------------------->
+           <img id="sport" src="images/logo.png" style="float:right;width:50px;height:50px;">
+
+	  
+	  <!---------------input type radio pour ouvrir/fermer barre de navigation lorsqu'on rétrécit l'écran ----------------------------->
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+	  
+	 <!----- représente une liste d'éléments sans ordre particulier. Il est souvent représenté par une liste à puces------>	
+      <ul class="nav-links">
+	    <!----------------------fas fa times est une icône en forme de croix ------------------------------>
+		<!---------------------classe nommée btn close-btn déclarée en haut-------------------------------->
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+		
+        <li><a href="#">Accueil</a></li>
+    
+		<!---L'élément HTML <li> est utilisé pour représenter un élément dans une liste.--->
+		<!---Il doit être contenu dans un élément parent : une liste ordonnée (<ol>) ou bien une liste non ordonnée (<ul>) --->
+        <li>
+          <a href="#" class="desktop-item">Mon compte</a>
+          <input type="checkbox" id="showDrop">
+		  <!----------------Supprimer la ligne du dessous fera disparaître la rubrique mon compte lorsqu'on rétrécit l'écran--------->
+          <label for="showDrop" class="mobile-item">Mon compte</label>
+          <ul class="drop-menu">
+            <li><a href="#">Mon Profil</a></li>
+            <li><a href="#">Clients</a></li>
+            <li><a href="#">Gestionnaire profils</a></li>
+            <li><a href="#">Gestionnaire capteurs</a></li>
+			<li><a href="sdsdsd.html">Messagerie</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="#">Forum</a></li>
+		
+      </ul> <!---Fin de la classe nav-links qui représente tout le contenu de la barre de navigation--->
+	  
+	  
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div> <!--Fin de la balise div class="wrapper"  ou du conteneur---->
+  </nav>
+
+  
+  
+  
+
+  
+
+   <!----------Création d'un conteneur------------->
+	<div class="container2">
+	<!---h1 pour écrire en gros, balise p pour paragraphe et balise b pour bold ------>
+	<h1><p id="output"><b> 0:00:00:00</b></p></h1>
+	
+	   <!-------------- Appel des fonctions JavaScript lorsqu'on clique sur les boutons --->	
+	   <div id="controls">	
+		<button id="startPause" onclick="startPause()"><b id="start"> Démarrer </b> </button>
+	    <button id="reset" onclick="reset()"><b id="reset"> Reset </b> </button>
+	   </div>
+	</div> <!---Fin du div container--->
+  
+  
+   
+
+</body>
+</html>

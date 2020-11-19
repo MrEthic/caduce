@@ -1,0 +1,562 @@
+/* -------------------------------------Partie FAQ--------------------------------------------------------*/
+
+
+body{
+	/* si la police utilisée n'est pas compatible avec le Hind, ce sera du sans-serif */
+	font-family: Hind, sans-serif;
+	/* La propriété display définit le type d'affichage utilisée pour le rendu d'un élément (de bloc ou en ligne) et la disposition utilisée pour ses éléments fils : grille ou boîtes flexibles. */
+	display: flex;
+	min-height: 100vh;
+	/* enlever flex-direction column décalera le footer vers la droite, ne pas enlever */
+	flex-direction: column;
+}
+
+
+
+
+.container{
+	/* mettre au centre et disposer correctement le texte */
+	margin: 0 auto; 
+	padding: 10em;
+	/* largeur, plus on augmente, plus le contenu s'étend */
+	width: 50rem;
+}
+
+
+
+.accordion h4{
+	position:relative;
+	  /* La propriété display définit le type d'affichage utilisée pour le rendu d'un élément (de bloc ou en ligne) et la disposition utilisée pour ses éléments fils : grille ou boîtes flexibles. */
+	display: flex;
+	flex-direction: column;
+	/* largeur conteneur */
+	width: 100%;
+	padding: 1rem 3rem 1rem 1rem;
+	/* couleur texte */
+	color: #7288A2;
+	font-size: 1.15rem;	
+	font-weight: 400;
+	/* permet de créer un petit trait entre chaque question en gris (#DDD) */
+	border-bottom: 1px solid #DDD;	
+	text-decoration: none;
+}
+
+/* une fois qu'on a cliqué sur les boutons flèches, on peut régler la couleur de la question ou des questions */
+.accordion h4.active{
+	/* couleur vert en hexa */
+	color: #03B5D2;
+	/* le trait passe de la couleur gris au vert kaki codé en hexadécimal */
+	border-bottom: 1px solid #cae566;
+	
+}
+
+/* changement du curseur de la souris passant d'une flèche à un gant */
+.accordion h4:hover, .accordiona:hover::after{cursor:pointer;color:#03B5D2;}
+
+/* gestion icône flècge haut */
+.accordion h4::after{
+	/* création de l'icône en forme de flècge */
+	font-family:"Font Awesome 5 Free";
+	/* code du contenu issu du site fontawesome.com */
+	content:'\f358';
+	/*position : absolute L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page*/
+	position:absolute;
+	float:right;
+	right:1rem;
+	font-size:1.5rem;
+	color:black;
+}
+
+/* gestion icône flèche bas */
+.accordion h4.active::after{
+	/* création de l'icône en forme de flècge */
+	font-family:"Font Awesome 5 Free";
+	/* code du contenu issu du site fontawesome.com */
+	content:'\f35b';
+	/* couleur vert en héxadécimale */
+	color: #03B5D2;
+}
+
+/*  mise en forme du paragrapge balise <p> en html */
+.accordion .content p{
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.accordion .content{
+	opacity: 0;max-height: 0; /* Permet de cacher le contenu une fois cliqué à nouveau */
+	padding: 0 1rem;
+	border-bottom: 1px solid #DDD;
+	overflow: hidden;
+	/*durée d'animation*/
+	transition: all 0.3s ease;
+}
+
+.accordion .content.active{
+	opacity: 1;max-height: 100%; /* afficher le contenu lorsqu'on clique sur la flèche */
+	padding: 0 1rem;
+	/*durée d'animation*/
+	transition: all 0.3s ease;
+}
+
+
+
+
+
+/*----------------------------------------------------------Partie Barre de navigation --------------------------------------------------- */
+
+
+nav{
+  position: fixed;
+  /* z-index :un élément couvrira un autre élément si sa valeur de z-index est supérieure à celle du deuxième élément */
+  z-index: 99;
+  /* régler la largeur en pourcentage pour le responsive au lieu des unités px,em */
+  width: 100%;
+  /* couleur codée en hexa correspondant au noir */
+  background: #242526;
+}
+
+/* modifier le placement des éléments (logo 4DGT et rubriques Accueil Mon compte Forum */
+nav .wrapper{
+  position: relative;
+  /* max-width: 1300px; */
+  /* padding optionnel */
+  padding: 0px 30px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .wrapper .logo a{
+  color: #f2f2f2;
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+} */
+.wrapper .nav-links{
+  /* La propriété display définit le type d'affichage utilisée pour le rendu d'un élément (de bloc ou en ligne) et la disposition utilisée pour ses éléments fils : grille ou boîtes flexibles. */
+  display: inline-flex;
+}
+.nav-links li{
+  /* désactiver la liste ordonnée ou non ordonnée (les tirets ) */	
+  list-style: none;
+}
+.nav-links li a{
+  /* couleur blanc en hexa */
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 9px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.nav-links li a:hover{
+  /* couleur gris foncé en hexa */	
+  background: #3A3B3C;
+}
+.nav-links .mobile-item{
+  display: none;
+}
+.nav-links .drop-menu{
+  position: absolute;
+  /* couleur noire de la barre de navigation */
+  background: #242526;
+  width: 180px;
+  /*Sur les éléments de bloc, la propriété line-height indique la hauteur minimale des lignes au sein de l'élément. */
+  line-height: 45px;
+  top: 85px;
+  opacity: 0;
+ /*La propriété visibility peut être utilisée afin de cacher un élément tout en conservant occupé l'espace dans lequel il aurait été visible*/ 
+  visibility: hidden;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.nav-links li:hover .drop-menu,
+.nav-links li:hover .mega-box{
+  transition: all 0.3s ease;
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.drop-menu li a{
+  width: 100%;
+  display: block;
+  /*padding format : haut | droit | bas | gauche */
+  padding: 0 0 0 15px;
+  font-weight: 400;
+  border-radius: 0px;
+}
+
+
+.content .row img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content .row header{
+  /* couleur blanc en hexa */	
+  color: #f2f2f2;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.wrapper .btn{
+  /* couleur blanc en hexa */	
+  color: #fff;
+  font-size: 20px;
+  /* change le curseur à un gant quand on pointe sur les rubriques */
+  cursor: pointer;
+  display: none;
+}
+.wrapper .btn.close-btn{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+/* Les requêtes média (media queries) permettent de modifier l'apparence d'un site ou d'une application en fonction du type d'appareil (impression ou écran par exemple) */
+/* et de ses caractéristiques (la résolution d'écran ou la largeur de la zone d'affichage (viewport) par exemple). */
+/* à partir de 970px de largeur, on obtiendra ce réglage */
+@media screen and (max-width: 970px) {
+  .wrapper .btn{
+    display: block;
+  }
+  .wrapper .nav-links{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 350px;
+    top: 0;
+    left: -100%;
+	/* couleur noire en hexa */
+    background: #242526;
+    display: block;
+    padding: 50px 10px;
+	 /*Sur les éléments de bloc, la propriété line-height indique la hauteur minimale des lignes au sein de l'élément. */
+    line-height: 50px;
+    overflow-y: auto;
+	/* réglage de l'ombre en arrière plan de la barre */
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+  /* Barre de scroll  */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+	/* couleur noir en hexa */  
+    background: #242526;
+  }
+  ::-webkit-scrollbar-thumb {
+	/* couleur gris foncé en hexa */  
+    background: #3A3B3C;
+  }
+  
+ /* La pseudo-classe :checked représente n'importe quel bouton radio (<input type="radio">), case à cocher (<input type="checkbox">) ou option (<option> d'un élément <select>) qui est coché ou activé (on). */
+ /* L'utilisateur peut modifier cet état en cliquant sur l'élément ou en sélectionnant une valeur différente auquel cas la pseudo-classe :checked ne s'applique plus à l'élément en question. */
+  #menu-btn:checked ~ .nav-links{
+    left: 0%;
+  }
+  #menu-btn:checked ~ .btn.menu-btn{
+    display: none;
+  }
+  #close-btn:checked ~ .btn.menu-btn{
+    display: block;
+  }
+  .nav-links li{
+    margin: 15px 10px;
+  }
+  .nav-links li a{
+    padding: 0 20px;
+    display: block;
+    font-size: 20px;
+  }
+  .nav-links .drop-menu{
+    position: static;
+	/*opacity : luminosité/clarté du contenu */
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+    padding-left: 20px;
+	/* largeur en pourcentage pour le responsive au lieu des unités px,em */
+    width: 100%;
+	/* hauteur maximale de 0 pixel */
+    max-height: 0px;
+	/* La propriété CSS overflow est une propriété raccourcie qui définit comment gérer le dépassement du contenu d'un élément dans son bloc */
+    overflow: hidden;
+	/* suppression de l'ombre */
+    box-shadow: none;
+	/* temps émis pour changer la forme de la barre de l'horizontal au vertical */
+    transition: all 0.3s ease;
+  }
+  
+  /* La pseudo-classe :checked représente n'importe quel bouton radio (<input type="radio">), case à cocher (<input type="checkbox">) ou option (<option> d'un élément <select>) qui est coché ou activé (on). */
+ /* L'utilisateur peut modifier cet état en cliquant sur l'élément ou en sélectionnant une valeur différente auquel cas la pseudo-classe :checked ne s'applique plus à l'élément en question. */
+  #showDrop:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box{
+    max-height: 100%;
+  }
+  .nav-links .desktop-item{
+	/*Utiliser la propriété display avec la valeur none sur un élément entraînera son retrait de l'arbre d'accessibilité. Cet élément ainsi que ses descendants ne seront plus annoncés par les lecteurs d'écrans. */  
+    display: none;
+  }
+  /* mise en forme de la barre de navigation verticale lorsqu'on rétrécit l'écran */
+  .nav-links .mobile-item{
+    display: block;
+	/* couleur blanc en hexa  */ 
+    color: #f2f2f2;
+	/* taille de la police */
+    font-size: 20px;
+	/* largeur de la police */
+    font-weight: 500;
+	/* écart à gauche de 20 pixels */
+    padding-left: 20px;
+    cursor: pointer;
+	/* arrondi */
+    border-radius: 5px;
+	/* temps pour changer la forme de la barre de navigation */
+    transition: all 0.3s ease;
+  }
+  .nav-links .mobile-item:hover{
+	/* couleur gris en hexa quand on place le curseur sur les rubriques */  
+    background: #3A3B3C;
+  }
+  .drop-menu li{
+	  
+    margin: 0;
+  }
+  .drop-menu li a{
+	  
+    border-radius: 5px;
+    font-size: 18px;
+  }
+ 
+  .content .row header{
+    font-size: 19px;
+  }
+}
+nav input{
+  /*Utiliser la propriété display avec la valeur none sur un élément entraînera son retrait de l'arbre d'accessibilité. Cet élément ainsi que ses descendants ne seront plus annoncés par les lecteurs d'écrans. */
+  display: none;
+}
+
+
+/*--------------------------------Partie Footer----------------------------------------------*/
+
+
+
+
+.contenu {
+    /* équivalent à grow shrink basis */
+	/*définit la capacité d'un élément flexible à modifier ses dimensions afin de remplir l'espace disponible de son conteneur. */
+    flex: 1 0 auto;
+}
+
+.contenu p {
+    padding: 5vw 10vw;
+	/*Permet d'équilibrer les marges de texte*/
+    text-align: justify;
+}
+
+footer {
+	/* flex-shrink et flex sont des propriétés similaires */
+    flex-shrink: 0;
+	/* permet de créer des pointillés séparant la partie Body et Footer */
+    border-top: 1px dashed #000;
+	/*largeur*/
+    width: 100%;
+	/* Couleur arrière plan en gris */
+    background: #f1f1f1;
+    color: #333;
+}
+.contenu-footer {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+	/* mettre au centre le contenu */
+    justify-content: center;
+	/* permet d'adapter le contenu lorsqu'on réduit la page sur le côté */
+    align-items: flex-start;
+	/* Taille de la police */
+    font-size: 20px;
+    padding: 50px 0 100px;
+}
+
+/* mise en forme de la classe bloc footer services appelés dans le code html */
+.bloc {
+    width: 25%;
+    margin: 0 30px;
+}
+
+/* Taille des titres (balise <h3> en html) */
+.footer-contact h3,
+.footer-services h3,
+.footer-horaires h3
+{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+/* placement des paragraphes (balise <p> en html) */
+.footer-contact p {
+    padding: 5px 0;
+}
+
+/* Services */
+
+.liste-services,
+.liste-horaires {
+    list-style-type: none;
+}
+.liste-services li {
+    padding: 2px 0;
+}
+.liste-services a {
+	/* enlever le soulignement lorsqu'on utilise la balise <a> */
+    text-decoration: none;
+	/* couleur noir */
+    color: #333;
+}
+/* lorsqu'on met le curseur de la souris sur CGU et mentions légales, on obtient du vert */
+.liste-services a:hover {
+   color: #03B5D2;
+}
+
+
+
+
+/* Media queries */
+/* Permet de mettre en avant le responsive design en fonction de la résolution imposée */
+/* à partir de 1300px de largeur, on obtiendra les propriétés suivantes */
+@media screen and (max-width: 1300px) {
+
+    .contenu-footer {
+        width: 700px;
+        flex-wrap: wrap;
+    }
+    .bloc {
+        width: 40%;
+        margin: 0 0;
+    }
+	/* notion de parité, père et enfant */
+    .bloc:nth-child(1),
+    .bloc:nth-child(2) {
+        margin-bottom: 50px;
+    }
+
+}
+
+/* Pareil à ce qu'on a fait au dessus, mais pour une résolution d'écran plus petite */
+/* à partir de 800px de largeur, on obtiendra les propriétés suivantes */
+@media screen and (max-width: 800px) {
+    .contenu-footer {
+        width: 320px;
+    }
+    .bloc {
+        width: 300px;
+        margin: 30px 30px;
+    }
+	/* notion de parité, père et enfant */
+    .bloc:nth-child(1),
+    .bloc:nth-child(2) {
+        margin-bottom: 30px;
+    }
+    .bloc:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+/* --------------------------------------Partie mentions légales en PopUp et non pas en page web-------------------------------------- */
+
+.popup .overlay {
+  position:fixed;
+  top:0px;
+  left:0px;
+  /* vh , qui signifie que la viewport height d' viewport height est relative à 1% de la hauteur de la fenêtre d'affichage */
+  /* vw , qui signifie que la viewport width est relative à 1% de la largeur de la fenêtre d'affichage */
+  width:100vw;
+  height:100vh;
+  /* transparence de couleur avec rgba avec 7% de transparence */
+  background:rgba(0,0,0,0.7);
+   /* z-index :un élément couvrira un autre élément si sa valeur de z-index est supérieure à celle du deuxième élément */
+  z-index:1;
+  display:none;
+}
+
+/* Mise en forme affichage du pop Up */
+.popup .content {
+  position:absolute;
+  top:50%;
+  left:50%;
+  /*  modifie l'espace de coordonnées utilisé pour la mise en forme visuelle. Grâce à cette propriété, il est possible de translater les éléments,  */
+  /*de les tourner, d'appliquer des homothéties, de les distordre pour en changer la perspective */
+  transform:translate(-50%,-50%) scale(0);
+  /* couleur blanc de l'arrière plan en héxadécimale */
+  background:#fff;
+  /* hauteur et largeur du pop Up */
+  width:800px;
+  height:650px;
+  /* z-index :un élément couvrira un autre élément si sa valeur de z-index est supérieure à celle du deuxième élément */
+  z-index:2;
+  text-align:center;
+  padding:20px;
+ définit la façon dont la hauteur et la largeur totale d'un élément est calculée 
+  box-sizing:border-box;
+  /* si le open sans ne peut être utilisé, ce sera le sans serif */
+  font-family:"Open Sans",sans-serif;
+}
+
+/* mise en forme du bouton croix pour fermer */
+.popup .close-btn {
+ /* modification du curseur de la souris flèche -> gant */	
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  top:20px;
+  width:30px;
+  height:30px;
+  /* couleur noir en héxadécimale */
+  background:#222;
+  /* le bouton croix sera de couleur blanc */
+  color:#fff;
+  /* taille police */
+  font-size:25px;
+  font-weight:600;
+  line-height:30px;
+  text-align:center;
+  /* permet d'avoir un cercle noir arrondi */
+  border-radius:50%;
+}
+
+.popup.active .overlay {
+  display:block;
+}
+
+.popup.active .content {
+  /* temps d'animation pour apparaître le popup */
+  transition:all 300ms ease-in-out;
+  /*  modifie l'espace de coordonnées utilisé pour la mise en forme visuelle. Grâce à cette propriété, il est possible de translater les éléments,  */
+  /*de les tourner, d'appliquer des homothéties, de les distordre pour en changer la perspective */
+  transform:translate(-50%,-50%) scale(1);
+}
+
+/* mise en forme du bouton mentions légales */
+button {
+ 
+  top:50%;
+  left:50%;
+  padding:15px;
+  font-size:15px;
+  border:2px solid #222;
+  color:#222;
+  /* mettre en majuscule */
+  text-transform:uppercase;
+  font-weight:600;
+  background:#fff;
+}
