@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "local";
+  src: url("\\public\\fonts\\Montserrat-Regular.ttf");
+}
+
 :root {
   --color-dark: #1d1d1f;
   --color-blue: #35597b;
@@ -11,7 +16,7 @@
   --gradient-1: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
   --gradient-2: linear-gradient(to right, #16222a, #3a6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  --font-montserrat: 'Montserrat', sans-serif;
+  --font-montserrat: 'local', sans-serif;
 
   font-family: var(--font-montserrat);
   font-weight: 300;
@@ -74,6 +79,15 @@ button, input {
   flex-grow: 3;
 }
 
+.user__search__reset{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.user__search__reset:hover {
+  filter: invert(70%) sepia(62%) saturate(7332%) hue-rotate(326deg) brightness(92%) contrast(88%);
+}
+
 .user__search__button__advances {
   flex-grow: 1;
 }
@@ -92,6 +106,28 @@ button, input {
   color: var(--color-white);
   text-transform: uppercase;
   height: 50px;
+}
+
+.sort__asc::after {
+  position: absolute;
+  content: "‣";
+  padding: 0;
+  padding-left: 15px;
+  margin: 0;
+  font-size: 40px;
+  display: inline-block;
+  transform: rotate(90deg) translateX(-75%);
+}
+
+.sort__desc::after {
+  position: absolute;
+  content: "‣";
+  padding: 0;
+  padding-left: 15px;
+  margin: 0;
+  font-size: 40px;
+  display: inline-block;
+  transform: rotate(-90deg) translateX(23%);
 }
 
 .user__table__row {
@@ -170,10 +206,24 @@ button, input {
   align-items: center;
 }
 
-.user__search__advanced__form > input[type="text"] {
-  width: 100%;
+.user__search__advanced__type {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user__search__advanced__fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+
+.user__search__advanced__fields > input[type="text"] {
+  width: 40%;
   height: 20px;
   padding-left: 10px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 20px;
   background-color: var(--color-white);

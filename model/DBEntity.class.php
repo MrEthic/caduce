@@ -16,8 +16,8 @@ class DBEntity {
         return $instance;
     }
 
-    protected static function from_sql($sql, $all = true) {
-        $content = DBUtils::execute_query($sql, $all);
+    protected static function from_sql($sql, $params, $all = true) {
+        $content = DBUtils::execute_query($sql, $params, $all);
         $instance = new self();
         $instance->fill($content);
         return $instance;
