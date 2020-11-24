@@ -43,7 +43,7 @@ button, input {
   -webkit-transition: flex-grow 0.4s ease-in-out;
   transition: flex-grow 0.4s ease-in-out;
   margin: 3px;
-  padding: 10px;
+  padding-left: 10px;
   height: 20px;
   border: none;
   border-radius: 20px;
@@ -55,7 +55,7 @@ button, input {
   flex-grow: 5;
 }
 
-.user__search > button {
+.user__search > input[type="submit"] {
   width: 100px;
   margin: 3px;
   height: 20px;
@@ -64,7 +64,7 @@ button, input {
   background-color: var(--color-white);
 }
 
-.user__search > button:hover {
+.user__search > input[type="submit"]:hover {
   background: var(--gradient-1);
   background: var(--gradient-2);
   color: var(--color-white);
