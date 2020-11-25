@@ -3,8 +3,7 @@
 <?php ob_start(); ?>
 
 <dialog class="user__search__advanced__container" id="searchModal">
-  <form class="user__search__advanced__form" action="/">
-    <input type="hidden" name="action" value="users">
+  <form class="user__search__advanced__form" action="/users">
     <h1>Recherche avancé</h1>
     <hr>
     <div class="user__search__advanced__type">
@@ -54,11 +53,10 @@
   </form>
 </dialog>
 <div class="user__container">
-  <form class="user__search" id="userSearch" action="/">
-    <input type="hidden" name="action" value="users">
+  <form class="user__search" id="userSearch" action="/users">
     <input class="user__search__bar" type="text" id="searchBar" name="filter" placeholder="Critère">
     <input class="user__search__button" id="search" type="submit" value="Search">
-    <a class="user__search__reset" href="/?action=users"><img src="/public/images/reset.png" alt="reset" width="20" height="20"></a>
+    <a class="user__search__reset" href="/users"><img src="/public/images/reset.png" alt="reset" width="20" height="20"></a>
   </form>
   <?php if ($users != false) { ?>
   <?php if (isset($_GET["filter"])) { ?><p style="padding-left:10px;">Filtre : <?= $_GET["filter"] ?></p><?php } ?>
@@ -84,7 +82,7 @@
       <th class="user__table__row__item"><?= $user["Nom"] ?></th>
       <th class="user__table__row__item"><?= $user["Mail"] ?></th>
       <th class="user__table__row__item"><?= $user["Création_Date"] ?></th>
-      <th class="user__table__row__item"><button type="button">+</button></th>
+      <th class="user__table__row__item"><a href="/users/profil/<?= $user["NSS"] ?>">+</a></th>
     </tr>
     <?php } ?>
     <tr class="user__table__footer">
