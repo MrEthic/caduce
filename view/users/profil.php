@@ -39,37 +39,37 @@
             </div>
         </div>
 
-        <div class="user__table user__profile__tests">
+        <div class="user__table">
             <table class="user__table user__profile__tests">
                 <tr class="user__table__header">
                     <th class="user__table__header__item">Date</th>
                     <th class="user__table__header__item">Heure</th>
                     <th class="user__table__header__item">Status</th>
-                    <th class="user__table__header__item"></th>
+                    <th class="user__table__header__item table_more"></th>
                 </tr>
                 <tr class="user__table__row">
                     <th class="user__table__row__item">2020-11-14</th>
                     <th class="user__table__row__item">14h04</th>
                     <th class="user__table__row__item">Passed</th>
-                    <th class="user__table__row__item"><button type="button">+</button></th>
+                    <th class="user__table__row__item"><a><div>+</div></a></th>
                 </tr>
                 <tr class="user__table__row user__profile_test_fail">
                     <th class="user__table__row__item">2020-11-14</th>
                     <th class="user__table__row__item">14h04</th>
                     <th class="user__table__row__item">Failed</th>
-                    <th class="user__table__row__item"><button type="button">+</button></th>
+                    <th class="user__table__row__item"><a>+</a></th>
                 </tr>
                 <tr class="user__table__row">
                     <th class="user__table__row__item">2020-11-14</th>
                     <th class="user__table__row__item">14h04</th>
                     <th class="user__table__row__item">Passed</th>
-                    <th class="user__table__row__item"><button type="button">+</button></th>
+                    <th class="user__table__row__item"><a>+</a></th>
                 </tr>
                 <tr class="user__table__row">
                     <th class="user__table__row__item">2020-11-14</th>
                     <th class="user__table__row__item">14h04</th>
                     <th class="user__table__row__item">Passed</th>
-                    <th class="user__table__row__item"><button type="button">+</button></th>
+                    <th class="user__table__row__item"><a>+</a></th>
                 </tr>
                 <tr class="user__table__footer">
                     <th></th>
