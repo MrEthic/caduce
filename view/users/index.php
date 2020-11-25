@@ -74,7 +74,7 @@
       <th class="user__table__header__item" onclick="sortTable(1)">Prénom</th>
       <th class="user__table__header__item" onclick="sortTable(2)">Mail</th>
       <th class="user__table__header__item" onclick="sortTable(3)">Inscription</th>
-      <th class="user__table__header__item"></th>
+      <th class="user__table__header__item table_more"></th>
     </tr>
     <?php foreach ($users as $user) { ?>
     <tr id="<?= $user['NSS'] ?>" class="user__table__row" style="<?= $user["is_suspended"]==1 ? 'color:red;' : ''  ?>">
@@ -82,7 +82,7 @@
       <th class="user__table__row__item"><?= $user["Nom"] ?></th>
       <th class="user__table__row__item"><?= $user["Mail"] ?></th>
       <th class="user__table__row__item"><?= $user["Création_Date"] ?></th>
-      <th class="user__table__row__item"><a href="/users/profil/<?= $user["NSS"] ?>">+</a></th>
+      <th class="user__table__row__item"><a href="/users/profil/<?= $user["NSS"] ?>"><div>+</div></a></th>
     </tr>
     <?php } ?>
     <tr class="user__table__footer">
