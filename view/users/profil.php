@@ -1,4 +1,4 @@
-<?php $title = "Ambulanciers"; ?>
+<?php $title = $user["Prenom"] . " " . $user["Nom"]; ?>
 
 <?php ob_start(); ?>
 
@@ -6,10 +6,10 @@
         <div class="user__profile__head">
             <div class="user__profile__picture">
                 <div class="user__profile__picture_content">
-                    <h1><?= $user["Prénom"] ?></h1>
+                    <h1><?= $user["Prenom"] ?></h1>
                     <h1><?= $user["Nom"] ?></h1>
                     <hr>
-                    <small><?= $user["Création_Date"] ?></small>
+                    <small><?= $user["Creation_Date"] ?></small>
                 </div>
             </div>
 

@@ -12,7 +12,7 @@ class Users extends Controller {
         else if(isset($_GET["type"])) {
             $params = ["Genre" => $_GET["sex"],
             "Nom" => $_GET["nom"],
-            "Prénom" => $_GET["prenom"],
+            "Prenom" => $_GET["prenom"],
             "Mail" => $_GET["mail"],
             "Tel" => $_GET["tel"],
             "dateA" => $_GET["from_date"],
@@ -37,6 +37,11 @@ class Users extends Controller {
         $this->User->id = $id;
         $user = $this->User->get_one();
         $this -> render("profil", ["user" => $user]);
+    }
+
+    public function create() {
+        $this->load_model("User");
+        $this -> render("create", []);
     }
 
 }
