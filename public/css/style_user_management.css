@@ -355,3 +355,19 @@ button, input {
 .user__profile_test_fail {
   color: red;
 }
+
+
+
+/* Gestion des tickets */
+
+
+.ticket__clot 
+{
+    color : rgb(139, 134, 134)
+    
+}
+
+.ticket__en__attente
+{
+color : red;
+}
