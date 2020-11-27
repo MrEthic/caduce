@@ -17,7 +17,7 @@ class user extends Model {
     }
 
     public function global_filter($filter) {
-        $sql = "SELECT * FROM user WHERE CONCAT(NSS, ' ', Nom, ' ', Prénom, ' ', Mail, ' ', Tel) REGEXP :filter";
+        $sql = "SELECT * FROM user WHERE CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
         $stmt = $this->conn-> prepare($sql);
         $stmt->execute([":filter" => $filter]);
         $result = $stmt->fetchAll();
@@ -37,7 +37,7 @@ class user extends Model {
             $sql = substr($sql, 0, -3);
         }
         if (isset($filters["dateA"]) and isset($filters["dateB"])){
-            $sql .= $filter_mode . " Création_Date BETWEEN :dateA AND :dateB";
+            $sql .= $filter_mode . " Creation_Date BETWEEN :dateA AND :dateB";
         }
         $stmt = $this->conn-> prepare($sql);
         $stmt->execute($filters);
