@@ -525,3 +525,19 @@ button, input {
 .gestionnaire__msg__input__form > input[type="submit"]:hover {
   opacity: 0.8;
 }
+
+
+/* Gestion des tickets */
+
+
+.ticket__clot 
+{
+    color : rgb(139, 134, 134)
+    
+}
+
+.ticket__en__attente
+{
+color : red;
+}
+ 

@@ -1,0 +1,125 @@
+<html>
+
+<head>
+  <title>Caducée</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="Gestionnaire gestion tickets.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <dialog class="user__search__advanced__container" id="searchModal">
+    <form class="user__search__advanced__form">
+      <h1>Recherche avancé</h1>
+      <hr>
+      <div class="user__search__advanced__dates">
+        <h3>Date d'ajout :</h3>
+        <span>Du </span>
+        <input type="date" />
+        <span> au </span>
+        <input type="date" />
+        <span> inclue</span>
+      </div>
+      <hr>
+      <div class="user__search__advanced__sex">
+        <div>
+          <label for="hospital">Hospital</label>
+          <input type="radio" id="hospital" name="establishement_type" value="hospital">
+        </div>
+        <div>
+          <input type="radio" id="clinic" name="establishement_type" value="clinic">
+          <label for="clinic">Clinic</label>
+        </div>
+        <div>
+          <input type="radio" id="neither" name="establishement_type" value="neither">
+          <label for="neither">Autre</label>
+        </div>
+      </div>
+      <hr>
+      <input type="text" placeholder="Critère">
+      <hr>
+      <button type="submit" id="advancedSearch" type="button">Search</button>
+    </form>
+  </dialog>
+  <div class="user__container">
+    <div class="user__search">
+      <input class="user__search__bar" type="text" id="searchBar" placeholder="Critère">
+      <button class="user__search__button" id="search" type="button">Search</button>
+    </div>
+    <table class="user__table">
+      <tr class="user__table__header">
+        <th class="user__table__header__item">ID Tiquet</th>
+        <th class="user__table__header__item">Date de creation</th>
+        <th class="user__table__header__item">Statut</th>
+        <th class="user__table__header__item">Hopital</th>
+        <th class="user__table__header__item">Dernier Message</th>
+        <th class="user__table__header__item"></th>
+      </tr>
+      <tr class="user__table__row ticket__en__attente">
+        <th class="user__table__row__item">001</th>
+        <th class="user__table__row__item">22/09/2020</th>
+        <th class="user__table__row__item">En attente</th>
+        <th class="user__table__row__item">Fransciquaine</th>
+        <th class="user__table__row__item">2020-11-22 : 13h22</tr>
+      <tr class="user__table__row">
+        <th class="user__table__row__item">048</th>
+        <th class="user__table__row__item">08/08/2020</th>
+        <th class="user__table__row__item">Géré</th>
+        <th class="user__table__row__item">Necker</th>
+        <th class="user__table__row__item">2020-10-28 : 16h19</tr>
+      <tr class="user__table__row ticket__clot">
+        <th class="user__table__row__item">124</th>
+        <th class="user__table__row__item">17/10/2020</th>
+        <th class="user__table__row__item">Clos</th>
+        <th class="user__table__row__item">Pitié-Salpétrière</th>
+        <th class="user__table__row__item">2020-11-05 : 11h40</tr>
+      <tr class="user__table__row ticket__en__attente">
+        <th class="user__table__row__item">240</th>
+        <th class="user__table__row__item">17/10/2020</th>
+        <th class="user__table__row__item">En attente</th>
+        <th class="user__table__row__item">Pitié-Salpétrière</th>
+        <th class="user__table__row__item">2020-11-05 : 11h40</tr>
+      <tr class="user__table__row ticket__clot">
+        <th class="user__table__row__item">369</th>
+        <th class="user__table__row__item">17/10/2020</th>
+        <th class="user__table__row__item">Clos</th>
+        <th class="user__table__row__item">Pitié-Salpétrière</th>
+        <th class="user__table__row__item">2020-11-05 : 11h40</tr>
+      <tr class="user__table__row ticket__clot">
+        <th class="user__table__row__item">76</th>
+        <th class="user__table__row__item">17/10/2020</th>
+        <th class="user__table__row__item">Clos</th>
+        <th class="user__table__row__item">Pitié-Salpétrière</th>
+        <th class="user__table__row__item">2020-11-05 : 11h40</tr>
+      <tr class="user__table__footer">
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    var modal = document.getElementById("searchModal");
+    var btn = document.getElementById("search");
+    var bar = document.getElementById("searchBar")
+    btn.onclick = function () {
+      if (bar.value == "") {
+        console.log(bar.value)
+        modal.style.display = "block";
+      }
+      //sinon rechercher
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
