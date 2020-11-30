@@ -8,24 +8,24 @@ require_once(DIR . "/config/config.php");
 
 $params = explode('/', $_GET['p']);
 
-if($params[0] != ""){
-   
+if ($params[0] != "") {
+
     $controller = ucfirst($params[0]);
     $action = isset($params[1]) ? $params[1] : 'index';
-    require_once(DIR.'/controllers/'.$controller.'.controller.php');
+    require_once(DIR . '/controllers/' . $controller . '.controller.php');
     $controller = new $controller();
 
-    if(method_exists($controller, $action)){
+    if (method_exists($controller, $action)) {
         unset($params[0]);
         unset($params[1]);
-        call_user_func_array([$controller, $action], $params);    
-    }else{
+        call_user_func_array([$controller, $action], $params);
+    } else {
         http_response_code(404);
         echo "La page recherchée n'existe pas";
     }
-}else{
+} else {
     //Si pas de page on rend la page d'acceuil
-    require_once(ROOT.'controllers/Main.php');
+    require_once(DIR . 'controllers/Main.php');
     $controller = new Main();
     $controller->index();
 }
