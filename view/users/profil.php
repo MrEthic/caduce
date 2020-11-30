@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="user__profile__infos">
+            <div style='color:<?= $user["is_suspended"]==1 ? "red" : "" ?>;'' class="user__profile__infos">
                 <div class="user__profile__infos_mail">
                     <img src="https://cdn4.iconfinder.com/data/icons/miu-black-social-2/60/mail-512.png" alt="mail">
                     <p><?= $user["Mail"] ?></p>
@@ -35,7 +35,7 @@
             <div class="user__profile__action">
                 <button class="user__profile__action__msg">Méssagerie</button>
                 <button class="user__profile__action__newtest">Nouveau Test</button>
-                <button class="user__profile__action__ban">Suspendre</button>
+                <button class="user__profile__action__ban"><?= $user["is_suspended"]==1 ? "Réabiliter" : "Suspendre" ?></button>
             </div>
         </div>
 

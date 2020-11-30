@@ -13,8 +13,9 @@
         <input checked type="radio" id="or" name="type" value="OR">
       </div>
       <div>
+      <label for="and">ET</label>
+
         <input type="radio" id="and" name="type" value="AND">
-        <label for="and">ET</label>
       </div>
     </div>
     <hr>
@@ -35,10 +36,6 @@
       <div>
         <input type="radio" id="female" name="sex" value="1">
         <label for="female">Femme</label>
-      </div>
-      <div>
-        <input checked type="radio" id="neither" name="sex" value="3">
-        <label for="neither">Autre</label>
       </div>
     </div>
     <hr>
@@ -76,7 +73,7 @@
       <th class="user__table__header__item" onclick="sortTable(3)">Inscription</th>
       <th class="user__table__header__item table_more"></th>
     </tr>
-    <tr class="user__table__row__create">
+    <tr id="newUser" class="user__table__row__create">
       <th class="user__table__row__item"></th>
       <th class="user__table__row__item"></th>
       <th class="user__table__row__item"></th>
@@ -114,7 +111,6 @@ else {
   var bar = document.getElementById("searchBar")
   btn.onclick = function () {
     if (bar.value == "") {
-      console.log(bar.value)
       modal.style.display = "block";
     }
     //sinon rechercher
@@ -156,6 +152,7 @@ else {
       /* Loop through all table rows (except the
       first, which contains table headers): */
       for (i = 1; i < (rows.length - 2); i++) {
+        if(rows[i].id == "newUser") {continue;}
         // Start by saying there should be no switching:
         shouldSwitch = false;
         /* Get the two elements you want to compare,

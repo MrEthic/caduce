@@ -8,6 +8,14 @@ class user extends Model {
         $this->get_connection();
     }
 
+    public function get_all() {
+        $sql = "SELECT * FROM user WHERE role_id=6";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function get_one() {
         $sql = "SELECT user.*, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM user JOIN adresse ON adresse.id_adresse=user.id_adresse WHERE user.NSS=:id";
         $stmt = $this->conn->prepare($sql);
