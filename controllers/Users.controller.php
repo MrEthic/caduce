@@ -5,6 +5,9 @@ require_once(DIR . "/controllers/Controller.php");
 class Users extends Controller {
 
     public function index() {
+        if(isset($_POST["NSS"])) {
+            $this->catch_create_user();
+        }
         $this->load_model("User");
         if(isset($_GET["filter"])) {
             $users = $this->User->global_filter($_GET["filter"]);
@@ -30,6 +33,11 @@ class Users extends Controller {
             $users = $this->User->get_all();
         }
         $this -> render("index", ["users" => $users]);
+    }
+
+    private function catch_create_user() {
+        $this->load_model("User");
+        $this->User->create($_POST);
     }
 
     public function profil($id) {
