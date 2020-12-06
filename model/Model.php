@@ -16,12 +16,8 @@ abstract class Model {
     public function get_connection() {
         $this->conn = null;
 
-        try{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->db_user, $this->db_password);
-            $this->conn->exec("set names utf8");
-        }catch(PDOException $exception){
-            echo "Erreur de connexion DB : " . $exception->getMessage();
-        }
+        $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->db_user, $this->db_password);
+        $this->conn->exec("set names utf8");
     }
 
     public function get_one() {
