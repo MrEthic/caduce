@@ -28,6 +28,7 @@ class ErrorC extends Controller
     public function index(Exception $e)
     {
         // TODO
+        echo "hello error";
     }
 
 }

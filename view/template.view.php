@@ -11,6 +11,44 @@
 
 <body>
     <?= $content ?>
+
+    <dialog class="alert__container" id="Alert">
+        <div id="AlertContent">
+            <div id="CloseAlert">
+                <span id="AlertCross">X</span>
+            </div>
+            <h1>Error !</h1>
+            <p id="AlertMSG"></p>
+        </div>
+    </dialog>
+
+
+    <script>
+
+        const alert = document.getElementById("Alert");
+        const alert_content = document.getElementById("AlertContent");
+        const alert_msg = document.getElementById("AlertMSG");
+        function pop_alert(msg, type) {
+            alert.style.display = "block";
+            if(type == "BAD") {
+                alert_content.style.backgroundColor = "red";
+            }
+            else if (type == "GOOD") {
+                alert_content.style.backgroundColor = "green";
+            }
+            alert_content.style.backgroundColor = "none";
+            alert_msg.innerHTML = msg;
+        }
+
+        const alert_close = document.getElementById("AlertCross");
+        function cl() {
+            alert.style.display = "none";
+        }
+        alert_close.addEventListener("click", cl, false);
+
+
+
+    </script>
 </body>
 
 </html>

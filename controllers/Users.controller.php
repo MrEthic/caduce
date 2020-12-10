@@ -13,9 +13,6 @@ class Users extends Controller {
      *  Render all the users
      */
     public function index() : void {
-        if(isset($_POST["NSS"])) {
-            $this->catch_create_user();
-        }
         $this->load_model("User");
         if(isset($_GET["filter"])) {
             $users = $this->User->global_filter($_GET["filter"]);
@@ -41,12 +38,26 @@ class Users extends Controller {
             $users = $this->User->get_all();
         }
         $this -> render("index", ["users" => $users]);
+        if(isset($_POST["NSS"])) {
+            $this->catch_create_user();
+        }
     }
 
     /**
      *  Create a user
      */
     private function catch_create_user() : void {
+        try {
+            foreach ($_POST as $key => $field) {
+                if ($field === "") {
+                    throw new Exception("Impossible de créer un utilisateur avec un champs vide");
+                }
+            }
+        } catch (Exception $e) {
+            require(DIR . "/view/alert.view.php");
+            pop_alert($e->getMessage(), "BAD");
+            return;
+        }
         $this->load_model("User");
         $this->User->create($_POST);
     }

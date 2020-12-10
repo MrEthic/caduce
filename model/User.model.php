@@ -22,30 +22,10 @@ class user extends Model
     }
 
     /**
-     * Send credential by mail to the user
-     *
-     * @param string $mail Mail adress of the user
-     * @param string $password Password of the user
-     * @param string $nom Last Name of the user
-     * @param string $prenom First Name of the user
-     */
-    private static function send_password(string $mail, string $password, string $nom, string $prenom) : void
-    {
-        $objet = "Votre mot de passe caducee.fr";
-        $msg = file_get_contents(DIR . "/public/html/new_user_mail.html");
-        $msg = str_replace("!!!MAIL!!!", $mail, $msg);
-        $msg = str_replace("!!!PASS!!!", $password, $msg);
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: <caducee@4dgt.com>' . "\r\n";
-        mail($mail,$objet,$msg,$headers);
-    }
-
-    /**
      * Get all users
      * @return array All users
      */
-    public function get_all() : Array
+    public function get_all(): array
     {
         $sql = "SELECT * FROM user WHERE role_id=6";
         $stmt = $this->conn->prepare($sql);
@@ -59,7 +39,7 @@ class user extends Model
      *
      * @return array User matching id
      */
-    public function get_one() : Array
+    public function get_one(): array
     {
         $sql = "SELECT user.*, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM user JOIN adresse ON adresse.id_adresse=user.id_adresse WHERE user.NSS=:id";
         $stmt = $this->conn->prepare($sql);
@@ -74,7 +54,7 @@ class user extends Model
      * @param string $filter A string of the filter to search
      * @return array Users matching the filter
      */
-    public function global_filter(string $filter) : Array
+    public function global_filter(string $filter): array
     {
         $sql = "SELECT * FROM user WHERE CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
         $stmt = $this->conn->prepare($sql);
@@ -100,7 +80,7 @@ class user extends Model
      * @param string $filter_mode Either "OR" or "AND"
      * @return array Users matching complex filter
      */
-    public function complexe_filter(Array $filters, string $filter_mode) : Array
+    public function complexe_filter(array $filters, string $filter_mode): array
     {
         $sql = "SELECT * FROM user WHERE";
         foreach ($filters as $key => $value) {
@@ -128,9 +108,9 @@ class user extends Model
      * Transaction is used to prevent duplicates address in case of errors in user insert query
      *
      * @param array $params Table of all parameters to create a user (address lines, city, zip code, country, NSS, Last Name, First Name, Mail, Phone)
-     * @throws PDOException PDO Database failing
+     * @throws PDOException|Exception Database failing
      */
-    public function create(Array $params) : void
+    public function create(array $params): void
     {
         $sql_adrr = "INSERT INTO adresse (line_a, line_b, city, zip, country) VALUES (:adr_line_1, :adr_line_2, :city, :code, :country)";
         $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :gender)";
@@ -163,7 +143,8 @@ class user extends Model
             $this->conn->commit();
         } catch (PDOException $e) {
             $this->conn->rollback();
-            throw $e;
+            require("../view/alert.view.php");
+            pop_alert($e->getMessage());
         }
         User::send_password($params["mail"], $provide_password, $params["nom"], $params["prenom"]);
 
@@ -179,6 +160,26 @@ class user extends Model
     {
         $bytes = random_bytes(8);
         return bin2hex($bytes);
+    }
+
+    /**
+     * Send credential by mail to the user
+     *
+     * @param string $mail Mail adress of the user
+     * @param string $password Password of the user
+     * @param string $nom Last Name of the user
+     * @param string $prenom First Name of the user
+     */
+    private static function send_password(string $mail, string $password, string $nom, string $prenom): void
+    {
+        $objet = "Votre mot de passe caducee.fr";
+        $msg = file_get_contents(DIR . "/public/html/new_user_mail.html");
+        $msg = str_replace("!!!MAIL!!!", $mail, $msg);
+        $msg = str_replace("!!!PASS!!!", $password, $msg);
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <caducee@4dgt.com>' . "\r\n";
+        mail($mail, $objet, $msg, $headers);
     }
 
 }

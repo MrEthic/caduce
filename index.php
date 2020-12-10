@@ -2,7 +2,6 @@
 
 define("DIR", getcwd());
 
-use \Caducee\Controller\{User, ErrorC};
 
 require_once(DIR . "/config/config.php");
 
