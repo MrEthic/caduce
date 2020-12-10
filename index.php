@@ -1,6 +1,9 @@
 <?php
 
 define("DIR", getcwd());
+
+use \Caducee\Controller\{User, ErrorC};
+
 require_once(DIR . "/config/config.php");
 
 // Check si le user et ou non connecté et quel type de compte il
@@ -43,7 +46,3 @@ catch (Exception $e) {
     $controller->index($e);
 }
 
-//require_once(DIR . "/controller/global.control.php");
-
-
-?>

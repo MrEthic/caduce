@@ -1,9 +1,19 @@
 <?php
+
 require_once(DIR . "/model/Model.php");
 
+/**
+ * Class user
+ *
+ * User Model, linked to the user table
+ * Handle all users fetching, creation and update
+ */
 class user extends Model
 {
 
+    /**
+     * user constructor.
+     */
     public function __construct()
     {
         $this->table = "user";
@@ -11,7 +21,15 @@ class user extends Model
         $this->get_connection();
     }
 
-    private static function send_password($mail, $password, $nom, $prenom)
+    /**
+     * Send credential by mail to the user
+     *
+     * @param string $mail Mail adress of the user
+     * @param string $password Password of the user
+     * @param string $nom Last Name of the user
+     * @param string $prenom First Name of the user
+     */
+    private static function send_password(string $mail, string $password, string $nom, string $prenom) : void
     {
         $objet = "Votre mot de passe caducee.fr";
         $msg = file_get_contents(DIR . "/public/html/new_user_mail.html");
@@ -23,7 +41,11 @@ class user extends Model
         mail($mail,$objet,$msg,$headers);
     }
 
-    public function get_all()
+    /**
+     * Get all users
+     * @return array All users
+     */
+    public function get_all() : Array
     {
         $sql = "SELECT * FROM user WHERE role_id=6";
         $stmt = $this->conn->prepare($sql);
@@ -32,7 +54,12 @@ class user extends Model
         return $result;
     }
 
-    public function get_one()
+    /**
+     * Get one user according to the id
+     *
+     * @return array User matching id
+     */
+    public function get_one() : Array
     {
         $sql = "SELECT user.*, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM user JOIN adresse ON adresse.id_adresse=user.id_adresse WHERE user.NSS=:id";
         $stmt = $this->conn->prepare($sql);
@@ -41,7 +68,13 @@ class user extends Model
         return $result;
     }
 
-    public function global_filter($filter)
+    /**
+     * Get all users where string $filter id either in NSS, Name, Surname, Mail or phone number of user
+     *
+     * @param string $filter A string of the filter to search
+     * @return array Users matching the filter
+     */
+    public function global_filter(string $filter) : Array
     {
         $sql = "SELECT * FROM user WHERE CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
         $stmt = $this->conn->prepare($sql);
@@ -50,7 +83,24 @@ class user extends Model
         return $result;
     }
 
-    public function complexe_filter($filters, $filter_mode)
+    /**
+     * Get all user matching filter with the $filter_mode corresponding (either OR or AND)
+     *
+     * Example :
+     * <code>
+     * $filter = [
+     *      "name" => "Andrew",
+     *      "mail" => "gmail"
+     * ];
+     * $filter_mode = "OR";
+     * // Will return all user with either : a name containing Andrew, or a mail containing gmail
+     * </code>
+     *
+     * @param array $filters Table of all filter as "Column" => "must_contain_value"
+     * @param string $filter_mode Either "OR" or "AND"
+     * @return array Users matching complex filter
+     */
+    public function complexe_filter(Array $filters, string $filter_mode) : Array
     {
         $sql = "SELECT * FROM user WHERE";
         foreach ($filters as $key => $value) {
@@ -73,7 +123,14 @@ class user extends Model
         return $result;
     }
 
-    public function create($params)
+    /**
+     * Create a user row in the database and an address row corresponding
+     * Transaction is used to prevent duplicates address in case of errors in user insert query
+     *
+     * @param array $params Table of all parameters to create a user (address lines, city, zip code, country, NSS, Last Name, First Name, Mail, Phone)
+     * @throws PDOException PDO Database failing
+     */
+    public function create(Array $params) : void
     {
         $sql_adrr = "INSERT INTO adresse (line_a, line_b, city, zip, country) VALUES (:adr_line_1, :adr_line_2, :city, :code, :country)";
         $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :gender)";
@@ -104,7 +161,7 @@ class user extends Model
             $stmt_user = $this->conn->prepare($sql_user);
             $stmt_user->execute($user_values);
             $this->conn->commit();
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             $this->conn->rollback();
             throw $e;
         }
@@ -112,6 +169,12 @@ class user extends Model
 
     }
 
+    /**
+     * Generate a random password using random_bytes
+     *
+     * @return string The generated password
+     * @throws Exception If entropy is to low (should never happen)
+     */
     private static function generate_password(): string
     {
         $bytes = random_bytes(8);
@@ -119,6 +182,3 @@ class user extends Model
     }
 
 }
-
-
-?>

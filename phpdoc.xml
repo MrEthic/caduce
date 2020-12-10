@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>Caducee Documentation</title>
+    <parser>
+        <target>docs</target>
+    </parser>
+    <transformations>
+        <template name="new-black" />
+    </transformations>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <files>
+        <directory>.</directory> <!-- Scan and parse all the php files except those found in the paths below -->
+        <ignore>ugolebg.php</ignore>
+        <ignore>config/*</ignore>
+        <ignore>public/*</ignore>
+        <ignore>public/*</ignore>
+    </files>
+</phpdoc>
