@@ -1,0 +1,116 @@
+
+<!---------------------------- NOTE ----------------------------->
+<!----------Enlever,modifier les liens jquery ou Boostrap--------------->
+<!--------Fera perdre la quasi totalité de la mise en forme et les interactions ----->
+<!--En mettant des liens externes, la page web met évidemment du temps à se charger (20-30 secondes pour charger la page) ----->
+
+<html>
+<head>
+	<!----Caractères classiques pour les sites web (en UTF-8 )--->
+    <meta charset="UTF-8">	
+	 
+	<!--Framework CSS,HTML et JS Boostrap Js + bibliothèque Jquery nécessaire au login -->
+	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+   
+   
+	 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  -->
+
+	<!-----------------Adapater  Affichage sur différents écrans (téléphone, tablettes, pc)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Nom du fichier CSS (à mettre dans le même dossier le fichier html et css) -->
+    <link rel="stylesheet" href="style_connexion.css">
+	<!--- Importation d'une librairie JavaScript pour faire les transitions de la barre --->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+
+
+
+
+
+
+	<!---------------------Corps du site web -------------------------------->
+<body>
+  <nav>
+    <div class="wrapper">
+	    <!-------------------Insertion du logo dans la barre de navigation--------------------------->
+           <img id="sport" src="images/logo.png" style="float:right;width:50px;height:50px;">
+
+	  
+	  <!---------------input type radio pour ouvrir/fermer barre de navigation lorsqu'on rétrécit l'écran ----------------------------->
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+	  
+	 <!----- représente une liste d'éléments sans ordre particulier. Il est souvent représenté par une liste à puces------>	
+      <ul class="nav-links">
+	    <!----------------------fas fa times est une icône en forme de croix ------------------------------>
+		<!---------------------classe nommée btn close-btn déclarée en haut-------------------------------->
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+		
+        <li><a href="accueil.html">Accueil</a></li>
+    
+		<!---L'élément HTML <li> est utilisé pour représenter un élément dans une liste.--->
+		<!---Il doit être contenu dans un élément parent : une liste ordonnée (<ol>) ou bien une liste non ordonnée (<ul>) --->
+        <li>
+          <a href="#" class="desktop-item">Mon compte</a>
+          <input type="checkbox" id="showDrop">
+		  <!----------------Supprimer la ligne du dessous fera disparaître la rubrique mon compte lorsqu'on rétrécit l'écran--------->
+          <label for="showDrop" class="mobile-item">Mon compte</label>
+          <ul class="drop-menu">
+            <li><a href="#">Mon Profil</a></li>
+            <li><a href="#">Clients</a></li>
+            <li><a href="htt.html">Gestionnaire profils</a></li>
+            <li><a href="#">Gestionnaire capteurs</a></li>
+			<li><a href="sdsdsd.html">Messagerie</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="FAQ.html">FAQ</a></li>
+		
+      </ul> <!---Fin de la classe nav-links qui représente tout le contenu de la barre de navigation--->
+	  
+	  
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div> <!--Fin de la balise div class="wrapper"  ou du conteneur---->
+  </nav>
+
+  
+  
+  
+  
+  
+  <!------------------------------------------Partie Login (identifiant, mot de passe )----------------------------------------------------------------->
+  
+  <!---- Création d'une balise form pour que required puisse fonctionner ---->
+  <form>
+   <div class="login">
+   <h1> Connexion </h1>
+   <div class="textbox">
+   <!--------placeholder : ce qui est écrit dans la boîte de message, name pour faire la liaison avec PHP------------>
+   <!---------required pour obliger l'utilisateur à insérer quelque chose ------------------------------------------->
+   <input type="text" placeholder="numéro sécurité social" name="nss"  required> 
+   </div>
+   
+   
+   <div class="textbox">
+   <!------ Required pour obliger l'utilisateur à insérer la donnée correspondante ---->
+   <input type="password" placeholder="mot de passe" name="mdp"  required>
+   </div>
+   
+   
+   <!----------- Bouton se connecter ------------------->
+   <button type="submit" class="btn"  name="">Se connecter </button>
+  
+   
+   <!----------------Mot de passe oublié ?---------------------------------->
+   <a href="mdp_oublie.html">Mot de passe oublié ?</a>
+   </form>
+   
+   </div> <!----- fin div login ---->
+    
+
+
+   
+</body>
+</html> <!--------- Fin de la balise HTML -------->
