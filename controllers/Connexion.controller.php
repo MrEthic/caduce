@@ -3,6 +3,7 @@
 require_once(DIR . "/controllers/Controller.php");
 
 class Connexion extends Controller {
+    $this->load_model("Login");
     include_once('cookieconnect.php');
     if(isset($_POST['formconnexion'])){
        $mailconnect = htmlspecialchars($_POST['mailconnect']);
@@ -27,6 +28,5 @@ class Connexion extends Controller {
           $erreur = "Tous les champs doivent être complétés !";
        }
     }
-
-
+    $this -> render("connexion", ["erreur" => $erreur]);
 }
