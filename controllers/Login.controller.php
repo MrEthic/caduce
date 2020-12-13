@@ -27,14 +27,18 @@ class Login extends Controller
                 else
                 {
                     $erreur = "Mauvais mail ou mot de passe !";
+                    require(DIR . "/view/alert.view.php");
+                    pop_alert($erreur, "BAD");
                 }
             }
             else
             {
                 $erreur = "Tous les champs doivent être complétés !";
+                require(DIR . "/view/alert.view.php");
+                pop_alert($erreur, "BAD");
             }
         }
-        $this->render("connexion", ["erreur" => $erreur]);
+        $this->render("connexion", []);
     }
 
 
