@@ -39,13 +39,28 @@ class user extends Model
      *
      * @return array User matching id
      */
-    public function get_one(): array
+    public function get_one()
     {
         $sql = "SELECT user.*, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM user JOIN adresse ON adresse.id_adresse=user.id_adresse WHERE user.NSS=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":id" => $this->id]);
         $result = $stmt->fetch();
         return $result;
+    }
+
+    /**
+     * authenticate user
+     *
+     * @param string $mailconnect mail of the user
+     * @param string $mdpconnect hashed password of the user
+     * @return int number of results (expected : 1 or 0
+     */
+    public function authenticator(string $mailconnect, string $mdpconnect) : int
+    {
+        $requser = $this->conn->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
+        $requser->execute(array($mailconnect, $mdpconnect));
+        $userexist = $requser->rowCount();
+        return $userexist;
     }
 
     /**
