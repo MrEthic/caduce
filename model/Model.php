@@ -45,7 +45,7 @@ abstract class Model {
      * Return the row corresponding to the id;
      * @return Array
      */
-    public function get_one() : Array {
+    public function get_one() {
         $sql = "SELECT * FROM " . $this->table . " WHERE " . $this->id_column . "=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":id" => $this->id]);
