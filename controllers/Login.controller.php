@@ -9,10 +9,10 @@ class Login extends Controller
     {
         $this->load_model("User");
         include_once ('cookieconnect.php');
-        if (isset($_POST['formconnexion']))
+        if (isset($_POST['mailconnect']))
         {
             $mail = htmlspecialchars($_POST['mailconnect']);
-            $password = password_hash($_POST['mdpconnect']);
+            $password = password_hash($_POST['mdpconnect'], PASSWORD_DEFAULT);
             if (!empty($mail) and !empty($password))
             {
                 $login_response = $this->User->authenticator($mail, $password);
