@@ -71,7 +71,12 @@ class Users extends Controller {
         $this->load_model("User");
         $this->User->id = $id;
         $user = $this->User->get_one();
-        $this -> render("profil", ["user" => $user]);
+        if ($user === false) {
+            header("Location: /users");
+        }
+        else {
+            $this -> render("profil", ["user" => $user]);
+        }
     }
 
     /**
