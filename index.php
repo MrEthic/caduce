@@ -4,6 +4,7 @@ define("DIR", getcwd());
 
 
 require_once(DIR . "/config/config.php");
+require_once(DIR . "/exceptions/AlertException.php");
 
 // Check si le user et ou non connecté et quel type de compte il
 // utilise puis require le controller conrrespondant
@@ -33,6 +34,10 @@ try {
         $controller = new Main();
         $controller->index();
     }
+}
+catch (AlertException $e) {
+    require(DIR . "/view/alert.view.php");
+    pop_alert($e->getMessage(), $e->getType());
 }
 catch (PDOException $e) {
     require_once(DIR . '/controllers/Error.controller.php');

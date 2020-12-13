@@ -11,7 +11,7 @@ class ErrorC extends Controller
 {
 
     /**
-     * Handle PDO Exceptions
+     * Handle PDO exceptions
      *
      * @param Exception $e The PDO Exception
      */
@@ -21,7 +21,7 @@ class ErrorC extends Controller
     }
 
     /**
-     * Handle all other Exceptions
+     * Handle all other exceptions
      *
      * @param Exception $e The Exception
      */
