@@ -3,7 +3,10 @@
 require_once(DIR . "/controllers/Controller.php");
 
 class Connexion extends Controller {
+<<<<<<< Updated upstream
     $this->load_model("Login");
+=======
+>>>>>>> Stashed changes
     include_once('cookieconnect.php');
     if(isset($_POST['formconnexion'])){
        $mailconnect = htmlspecialchars($_POST['mailconnect']);
@@ -28,5 +31,10 @@ class Connexion extends Controller {
           $erreur = "Tous les champs doivent être complétés !";
        }
     }
+<<<<<<< Updated upstream
     $this -> render("connexion", ["erreur" => $erreur]);
+=======
+
+
+>>>>>>> Stashed changes
 }
