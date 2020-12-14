@@ -7,7 +7,7 @@
     <hr>
     <h1>Création d'un utilisateur</h1>
     <hr>
-    <form class="user__create__form" action="/users" method="post">
+    <form class="user__create__form" action="/users/create" method="post">
         <label for="NSS">Numéro de sécurité social</label>
         <input class="user__create__nss" name="NSS" placeholder="NSS" type="text" inputmode="numeric" maxlength=13 pattern="[12]{1}\d{12}" autocomplete="off">
         <div class="user__create__name">
