@@ -51,16 +51,17 @@ class user extends Model
     /**
      * authenticate user
      *
-     * @param string $mailconnect mail of the user
-     * @param string $mdpconnect hashed password of the user
-     * @return int number of results (expected : 1 or 0
+     * @param string $mail Mail of the user
+     * @return Array the user with the specific mail or false if no users exist
      */
-    public function authenticator(string $mailconnect, string $mdpconnect) : int
+    public function authenticator(string $mail)
     {
-        $requser = $this->conn->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
-        $requser->execute(array($mailconnect, $mdpconnect));
-        $userexist = $requser->rowCount();
-        return $userexist;
+        $users_query = $this->conn->prepare("SELECT * FROM user WHERE Mail = ? ");
+        $users_query->execute(array($mail));
+        if ($users_query->rowCount() != 1) {
+            return false;
+        }
+        return $users_query->fetch();
     }
 
     /**
@@ -123,9 +124,10 @@ class user extends Model
      * Transaction is used to prevent duplicates address in case of errors in user insert query
      *
      * @param array $params Table of all parameters to create a user (address lines, city, zip code, country, NSS, Last Name, First Name, Mail, Phone)
+     * @return bool True if the user was created
      * @throws PDOException|Exception Database failing
      */
-    public function create(array $params): void
+    public function create(array $params): bool
     {
         $sql_adrr = "INSERT INTO adresse (line_a, line_b, city, zip, country) VALUES (:adr_line_1, :adr_line_2, :city, :code, :country)";
         $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :gender)";
@@ -158,11 +160,10 @@ class user extends Model
             $this->conn->commit();
         } catch (PDOException $e) {
             $this->conn->rollback();
-            require("../view/alert.view.php");
-            pop_alert($e->getMessage());
+            throw $e;
         }
         User::send_password($params["mail"], $provide_password, $params["nom"], $params["prenom"]);
-
+        return true;
     }
 
     /**
