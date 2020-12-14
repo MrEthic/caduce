@@ -38,6 +38,7 @@ abstract class Model {
         $this->conn = null;
 
         $this->conn = new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->db_user, $this->db_password);
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->conn->exec("set names utf8");
     }
 
