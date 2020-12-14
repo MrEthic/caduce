@@ -1,6 +1,7 @@
 <?php
 
 require_once(DIR . "/controllers/Controller.php");
+require_once(DIR . "/exceptions/AlertException.php");
 
 /**
  * User Controller, handle all user routes
@@ -38,28 +39,21 @@ class Users extends Controller {
             $users = $this->User->get_all();
         }
         $this -> render("index", ["users" => $users]);
-        if(isset($_POST["NSS"])) {
-            $this->catch_create_user();
-        }
     }
 
     /**
      *  Create a user
      */
-    private function catch_create_user() : void {
-        try {
-            foreach ($_POST as $key => $field) {
-                if ($field === "") {
-                    throw new Exception("Impossible de créer un utilisateur avec un champs vide");
-                }
+    private function post_create() : void {
+        foreach ($_POST as $key => $field) {
+            if ($field === "") {
+                throw new AlertException("Impossible de créer un utilisateur avec un champs vide");
             }
-        } catch (Exception $e) {
-            require(DIR . "/view/alert.view.php");
-            pop_alert($e->getMessage(), "BAD");
-            return;
         }
         $this->load_model("User");
-        $this->User->create($_POST);
+        if ($this->User->create($_POST)) {
+            header("Location: /users");
+        }
     }
 
     /**
@@ -85,6 +79,9 @@ class Users extends Controller {
     public function create() : void {
         $this->load_model("User");
         $this -> render("create", []);
+        if(isset($_POST["NSS"])) {
+            $this->post_create();
+        }
     }
 
 }
