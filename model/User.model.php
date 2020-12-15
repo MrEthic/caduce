@@ -72,7 +72,7 @@ class user extends Model
      */
     public function global_filter(string $filter): array
     {
-        $sql = "SELECT * FROM user WHERE CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
+        $sql = "SELECT * FROM user WHERE role_id=6 AND CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":filter" => $filter]);
         $result = $stmt->fetchAll();
@@ -98,7 +98,7 @@ class user extends Model
      */
     public function complexe_filter(array $filters, string $filter_mode): array
     {
-        $sql = "SELECT * FROM user WHERE";
+        $sql = "SELECT * FROM user WHERE role_id=6 AND (";
         foreach ($filters as $key => $value) {
             if ($key == "dateA" or $key == "dateB" or $value == "") {
                 continue;
@@ -113,6 +113,7 @@ class user extends Model
         if (isset($filters["dateA"]) and isset($filters["dateB"])) {
             $sql .= $filter_mode . " Creation_Date BETWEEN :dateA AND :dateB";
         }
+        $sql .= ")";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($filters);
         $result = $stmt->fetchAll();
@@ -129,6 +130,12 @@ class user extends Model
      */
     public function create(array $params): bool
     {
+        $sql_check = "SELECT * FROM user WHERE Mail=:mail OR NSS=:nss";
+        $stmt_check = $this->conn->prepare($sql_check);
+        $stmt_check->execute([":mail" => $params["mail"], ":nss" => $params["NSS"]]);
+        if($stmt_check->rowCount() != 0) {
+            return False;
+        }
         $sql_adrr = "INSERT INTO adresse (line_a, line_b, city, zip, country) VALUES (:adr_line_1, :adr_line_2, :city, :code, :country)";
         $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :gender)";
         $provide_password = User::generate_password();
