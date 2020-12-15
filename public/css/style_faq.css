@@ -506,7 +506,7 @@ footer {
   z-index:2;
   text-align:center;
   padding:20px;
- définit la façon dont la hauteur et la largeur totale d'un élément est calculée 
+ /*définit la façon dont la hauteur et la largeur totale d'un élément est calculée */
   box-sizing:border-box;
   /* si le open sans ne peut être utilisé, ce sera le sans serif */
   font-family:"Open Sans",sans-serif;

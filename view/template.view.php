@@ -4,12 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <title><?= $title ?></title>
-    <link rel="stylesheet" type="text/css" href="<?php DIR?>/public/css/style_user_management.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+   <!-- <link rel="stylesheet" type="text/css" href="/public/css/style_user_management.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/style_connexion.css" />-->
+    <link rel="stylesheet" type="text/css" href="<?php DIR?>/public/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="<?php DIR?>/public/css/style_navbar.css" />
+
+    <!--<link rel="preconnect" href="http://fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">-->
 </head>
 
 <body>
+
+    <?php include_once("navbar.view.php"); ?>
+
     <?= $content ?>
 
     <dialog class="alert__container" id="Alert">
