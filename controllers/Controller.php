@@ -1,5 +1,7 @@
 <?php
 
+require_once(DIR . "/exceptions/AccessException.php");
+
 /**
  * Class Controller
  *
@@ -26,6 +28,33 @@ abstract class Controller {
     public function render(string $fichier, Array $data = []) : void {
         extract($data);
         require_once(DIR . "/view/" . strtolower(get_class($this)) . "/" . $fichier . ".php");
+    }
+
+    protected function isLoged() {
+        if (!isset($_SESSION['NSS'], $_SESSION['ROLE'])) {
+            throw new AccessException();
+        }
+    }
+
+    protected function admin(bool $can_pass = false) {
+        $this->isLoged();
+        if ($_SESSION['ROLE'] != 1) {
+            throw new AccessException();
+        }
+    }
+
+    protected function gestionaire(bool $can_pass = false) {
+        $this->isLoged();
+        if ($_SESSION['ROLE'] != 7) {
+            throw new AccessException();
+        }
+    }
+
+    protected function user(bool $can_pass = false) {
+        $this->isLoged();
+        if ($_SESSION['ROLE'] != 6) {
+            throw new AccessException();
+        }
     }
 
 }

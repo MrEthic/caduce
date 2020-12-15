@@ -5,11 +5,13 @@ define("DIR", getcwd());
 
 require_once(DIR . "/config/config.php");
 require_once(DIR . "/exceptions/AlertException.php");
+require_once(DIR . "/exceptions/AccessException.php");
 
 // Check si le user et ou non connecté et quel type de compte il
 // utilise puis require le controller conrrespondant
 
 
+session_start();
 $params = explode('/', $_GET['p']);
 
 try {
@@ -30,22 +32,29 @@ try {
         }
     } else {
         //Si pas de page on rend la page d'acceuil
-        require_once(DIR . '/controllers/Main.php');
-        $controller = new Main();
-        $controller->index();
+        header("Location: /home");
     }
 }
 catch (AlertException $e) {
     require(DIR . "/view/alert.view.php");
     pop_alert($e->getMessage(), $e->getType());
 }
+catch (AccessException $e) {
+    // TODO : Qlq chose de propre quand on a pas les droits d'acces
+    ignore_user_abort(true);
+    echo "ho";
+    header("Location: /home");
+    echo "hey";
+    require(DIR . "/view/alert.view.php");
+    pop_alert($e->getMessage(), "BAD");
+}
 catch (PDOException $e) {
-    require_once(DIR . '/controllers/Error.controller.php');
+    require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->pdo($e);
 }
 catch (Exception $e) {
-    require_once(DIR . '/controllers/Error.controller.php');
+    require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->index($e);
 }
