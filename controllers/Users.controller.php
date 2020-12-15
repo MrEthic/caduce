@@ -14,6 +14,7 @@ class Users extends Controller {
      *  Render all the users
      */
     public function index() : void {
+        $this->gestionaire();
         $this->load_model("User");
         if(isset($_GET["filter"])) {
             $users = $this->User->global_filter($_GET["filter"]);
@@ -51,8 +52,15 @@ class Users extends Controller {
             }
         }
         $this->load_model("User");
-        if ($this->User->create($_POST)) {
+        $params = [];
+        foreach ($_POST as $key => $value) {
+            $params[$key] = htmlspecialchars($value);
+        }
+        if ($this->User->create($params)) {
             header("Location: /users");
+        }
+        else {
+            throw new AlertException("Une erreur est survenue, NSS ou email deja utilisé");
         }
     }
 
@@ -62,6 +70,7 @@ class Users extends Controller {
      * @param string $id Id of the user
      */
     public function profil(string $id) : void {
+        $this->gestionaire();
         $this->load_model("User");
         $this->User->id = $id;
         $user = $this->User->get_one();
@@ -69,7 +78,7 @@ class Users extends Controller {
             header("Location: /users");
         }
         else {
-            $this -> render("profil", ["user" => $user]);
+            $this->render("profil", ["user" => $user]);
         }
     }
 
@@ -77,6 +86,7 @@ class Users extends Controller {
      * Create user page
      */
     public function create() : void {
+        $this->gestionaire();
         $this->load_model("User");
         $this -> render("create", []);
         if(isset($_POST["NSS"])) {
