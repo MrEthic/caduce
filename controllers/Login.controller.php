@@ -1,30 +1,34 @@
 <?php
 
+namespace caducee\Controller;
+// 50163181163dd777
 require_once(DIR . "/controllers/Controller.php");
 require_once(DIR . "/exceptions/AlertException.php");
 
 class Login extends Controller
 {
 
-    public function index()
+    public function index() : void
     {
+        // L'utilisateur est déja connécté
         if (isset($_SESSION['NSS'])) {
             header("Location: /profil");
             exit();
         }
         //$this->try_auto_connect();
-        $this->load_model("User");
+        $this->load_model("Auth");
+        // Catch une post request de login
         if (isset($_POST['mailconnect'])) {
             $this->post_login();
         }
         $this->render("index", []);
     }
 
-    private function post_login() {
+    private function post_login() : void {
         $mail = htmlspecialchars($_POST['mailconnect']);
         $password = htmlspecialchars($_POST['mdpconnect']);
         if ($mail != "" and $password != "") {
-            $user = $this->User->authenticator($mail, $password);
+            $user = $this->Auth->authenticator($mail, $password);
             if ($this->check_user($user, $password)) {
                 if (isset($_POST['rememberme'])) {
                     setcookie('auto_log_mail', $mail, time() + 365 * 24 * 3600, null, null, false, true);
@@ -34,7 +38,7 @@ class Login extends Controller
                 exit();
             }
         } else {
-            throw new AlertException("Tout les champs doivent etre complété !", "BAD");
+            throw new caducee\Exception\AlertException("Tout les champs doivent etre complété !", "BAD");
         }
     }
 
@@ -44,8 +48,8 @@ class Login extends Controller
             and !empty($_COOKIE['auto_log_mail'])
             and !empty($_COOKIE['auto_log_password'])) {
 
-            $this->load_model("User");
-            $user = $this->User->authenticator($_COOKIE['auto_log_mail'], $_COOKIE['auto_log_password']);
+            $this->load_model("Auth");
+            $user = $this->Auth->authenticator($_COOKIE['auto_log_mail'], $_COOKIE['auto_log_password']);
             if($this->check_user($user, $_COOKIE['auto_log_password'])) {
                 header("Location: /home");
                 exit();
@@ -56,17 +60,24 @@ class Login extends Controller
     private function check_user($user, string $password): bool
     {
         if (!$user) { //Aucun user avec ce mail
-            throw new AlertException("Mauvaise adresse mail");
+            require(DIR . "/utils/alert.php");
+            alert("Email incorect");
             return false;
         } else if (password_verify($password, $user["hash_password"])) {
+            if ($user["is_suspended"] == 1) {
+                require(DIR . "/utils/alert.php");
+                alert("Votre compte est suspendu");
+                exit();
+            }
             $_SESSION['NSS'] = $user['NSS'];
             $_SESSION['nom'] = $user['Nom'];
             $_SESSION['prenom'] = $user['Prenom'];
             $_SESSION['mail'] = $user['Mail'];
             $_SESSION['ROLE'] = $user['role_id'];
+            $_SESSION['hid'] = $user["id_hospital"];
             return true;
         } else {
-            throw new AlertException("Mauvais mot de passe");
+            throw new \caducee\Exception\AlertException("Mauvais mot de passe");
             return false;
         }
     }

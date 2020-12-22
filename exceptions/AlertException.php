@@ -1,7 +1,8 @@
 <?php
 
+namespace caducee\Exception;
 
-class AlertException extends Exception
+class AlertException extends \Exception
 {
 
     private string $type;

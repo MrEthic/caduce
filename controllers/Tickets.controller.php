@@ -4,11 +4,11 @@ namespace caducee\Controller;
 
 require_once(DIR . "/controllers/Controller.php");
 
-class Home extends Controller
+class tickets extends Controller
 {
 
     public function index() {
-        $this->render("index", []);
+        $this->render("index");
     }
 
 }

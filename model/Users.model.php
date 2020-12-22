@@ -1,5 +1,6 @@
 <?php
 
+namespace caducee\Model;
 require_once(DIR . "/model/Model.php");
 
 /**
@@ -8,15 +9,16 @@ require_once(DIR . "/model/Model.php");
  * User Model, linked to the user table
  * Handle all users fetching, creation and update
  */
-class user extends Model
+class Users extends Model
 {
 
     /**
      * user constructor.
+     *
      */
     public function __construct()
     {
-        $this->table = "user";
+        $this->table = "users";
         $this->id_column = "NSS";
         $this->get_connection();
     }
@@ -25,9 +27,9 @@ class user extends Model
      * Get all users
      * @return array All users
      */
-    public function get_all(): array
+    public function get_hospital($hid): array
     {
-        $sql = "SELECT * FROM user WHERE role_id=6";
+        $sql = sprintf("SELECT * FROM users WHERE id_hospital=%s", $hid);
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -41,27 +43,11 @@ class user extends Model
      */
     public function get_one()
     {
-        $sql = "SELECT user.*, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM user JOIN adresse ON adresse.id_adresse=user.id_adresse WHERE user.NSS=:id";
+        $sql = "SELECT *, CONCAT(adresse.zip, ', ', adresse.city) as 'Adresse' FROM users u JOIN adresse ON adresse.id_adresse=u.id_adresse WHERE u.NSS=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":id" => $this->id]);
         $result = $stmt->fetch();
         return $result;
-    }
-
-    /**
-     * authenticate user
-     *
-     * @param string $mail Mail of the user
-     * @return Array the user with the specific mail or false if no users exist
-     */
-    public function authenticator(string $mail)
-    {
-        $users_query = $this->conn->prepare("SELECT * FROM user WHERE Mail = ? ");
-        $users_query->execute(array($mail));
-        if ($users_query->rowCount() != 1) {
-            return false;
-        }
-        return $users_query->fetch();
     }
 
     /**
@@ -72,7 +58,7 @@ class user extends Model
      */
     public function global_filter(string $filter): array
     {
-        $sql = "SELECT * FROM user WHERE role_id=6 AND CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
+        $sql = "SELECT u.* FROM users u WHERE CONCAT(NSS, ' ', Nom, ' ', Prenom, ' ', Mail, ' ', Tel) REGEXP :filter";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":filter" => $filter]);
         $result = $stmt->fetchAll();
@@ -98,20 +84,20 @@ class user extends Model
      */
     public function complexe_filter(array $filters, string $filter_mode): array
     {
-        $sql = "SELECT * FROM user WHERE role_id=6 AND (";
+        $sql = "SELECT * FROM users WHERE (";
         foreach ($filters as $key => $value) {
             if ($key == "dateA" or $key == "dateB" or $value == "") {
                 continue;
             }
             $sql .= sprintf(" %s REGEXP :%s %s", $key, $key, $filter_mode);
         }
+        if (isset($filters["dateA"]) and isset($filters["dateB"])) {
+            $sql .= " Creation_Date BETWEEN :dateA AND :dateB" .$filter_mode;
+        }
         if ($filter_mode == "OR") {
             $sql = substr($sql, 0, -2);
         } else {
             $sql = substr($sql, 0, -3);
-        }
-        if (isset($filters["dateA"]) and isset($filters["dateB"])) {
-            $sql .= $filter_mode . " Creation_Date BETWEEN :dateA AND :dateB";
         }
         $sql .= ")";
         $stmt = $this->conn->prepare($sql);
@@ -137,8 +123,8 @@ class user extends Model
             return False;
         }
         $sql_adrr = "INSERT INTO adresse (line_a, line_b, city, zip, country) VALUES (:adr_line_1, :adr_line_2, :city, :code, :country)";
-        $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :gender)";
-        $provide_password = User::generate_password();
+        $sql_user = "INSERT INTO user (NSS, Nom, Prenom, Mail, hash_password, Tel, id_adresse, id_hospital, Genre) VALUES (:nss, :nom, :prenom, :mail, :password, :tel, :id_adress, :id_hospital, :gender)";
+        $provide_password = Users::generate_password();
         $hashed_password = password_hash($provide_password, PASSWORD_DEFAULT);
         $user_values = [
             "nss" => $params["NSS"],
@@ -147,6 +133,7 @@ class user extends Model
             "mail" => $params["mail"],
             "password" => $hashed_password,
             "tel" => $params["tel"],
+            "id_hospital" => $params["hid"],
             "gender" => substr($params["NSS"], 0, 1) == "1" ? 0 : 1
         ];
         $adrr_values = [
@@ -169,7 +156,7 @@ class user extends Model
             $this->conn->rollback();
             throw $e;
         }
-        User::send_password($params["mail"], $provide_password, $params["nom"], $params["prenom"]);
+        Users::send_password($params["mail"], $provide_password, $params["nom"], $params["prenom"]);
         return true;
     }
 
