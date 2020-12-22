@@ -20,7 +20,6 @@
     <?php if(isset($_SESSION["NSS"])) { ?>
     <script src="<?php DIR?>/public/js/notify.js"></script>
     <?php } ?>
-    <script src="<?php DIR?>/public/js/alert.js"></script>
 
     <script src="<?php DIR?>/public/js/function.js"></script>
 
