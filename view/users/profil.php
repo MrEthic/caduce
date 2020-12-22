@@ -32,9 +32,9 @@
                     <p><?= $user["Adresse"] ?></p>
                 </div>
             </div>
-
+            <?php $uid=$user["NSS"] ?>
             <div id="userPorfilAction">
-                <button style="background-color: var(--color-dark);">Méssagerie</button>
+                <button onclick="location.href='/tchat/t/<?= $uid ?>'" style="background-color: var(--color-dark);">Méssagerie</button>
                 <button style="background-color: var(--color-light-blue);">Nouveau Test</button>
                 <button style="background-color: var(--color-red);"><?= $user["is_suspended"]==1 ? "Réabiliter" : "Suspendre" ?></button>
             </div>

@@ -24,6 +24,10 @@ nav{
     margin-bottom: 10px;
 }
 
+nav {
+    margin-bottom: 50px;
+}
+
 /* modifier le placement des éléments (logo 4DGT et rubriques Accueil Mon compte Forum */
 nav .wrapper{
     position: relative;

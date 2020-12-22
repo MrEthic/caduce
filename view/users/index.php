@@ -1,210 +1,293 @@
-<?php $title = "Ambulanciers"; ?>
+<?php
+$title = "Ambulanciers";
+$active_page = "nav-user";
+?>
 
 <?php ob_start(); ?>
 
-<dialog class="alert__container" id="searchModal">
-    <form id="advancedSearch" class="page halfwidth darkBck vcenter round-border container" action="/users">
-        <h1>Recherche avancée</h1>
-        <hr>
-        <div class="hflex">
-            <h3>Mode de recherche :</h3>
-            <div>
-                <label for="or">OU</label>
-                <input checked type="radio" id="or" name="type" value="OR">
-            </div>
-            <div>
-                <label for="and">ET</label>
-                <input type="radio" id="and" name="type" value="AND">
-            </div>
-        </div>
-        <hr>
+<a href="#"><img id="goToTop" src="/public/images/up.png"/></a>
+
+<section id="users" class="panel">
+    <h1>Utilisateurs</h1>
+    <div id="userStat" class="content-card">
         <div>
-            <h3>Date d'inscription :</h3>
-            <div class="hflex">
-                <span>Du </span>
-                <input type="date" name="from_date"/>
-                <span> au </span>
-                <input type="date" name="to_date"/>
-                <span> inclue</span>
-            </div>
+            <h2>Utilisateurs</h2>
+            <h2>Actifs</h2>
+            <hr>
+            <p>45</p>
         </div>
-        <hr>
-        <div class="hflex">
-            <h3>Genre :</h3>
-            <div>
-                <label for="male">Homme</label>
-                <input checked type="radio" id="male" name="sex" value="0">
-            </div>
-            <div>
-                <label for="female">Femme</label>
-                <input type="radio" id="female" name="sex" value="1">
-            </div>
+
+        <div>
+            <h2>Tests</h2>
+            <h2>Réalisés</h2>
+            <hr>
+            <p>45</p>
         </div>
-        <hr>
-        <div class="hflex flex-wrap" id="advancedFields">
-            <input type="text" placeholder="Nom" name="nom">
-            <input type="text" placeholder="Pénom" name="prenom">
-            <input type="text" placeholder="Mail" name="mail">
-            <input type="text" placeholder="Téléphone" name="tel">
+
+        <div>
+            <h2>Tests</h2>
+            <h2>Réalisés</h2>
+            <hr>
+            <p>45</p>
         </div>
-        <hr>
-        <button type="submit" id="advancedSearchSubmit" type="button">Search</button>
-    </form>
-</dialog>
-<div class="page whitBck">
-    <div class="title">
-        <h1>Utilisateurs</h1>
+
+        <div>
+            <h2>Utilisateurs</h2>
+            <h2>Suspendu</h2>
+            <hr>
+            <p>45</p>
+        </div>
     </div>
-    <form class="container fullwidth hflex" id="userSearch" action="/users">
-        <input type="text" id="searchBar" name="filter" placeholder="Critère">
-        <input class="darkBck" id="searchSubmit" type="submit" value="Search">
-        <a id="searchReset" href="/users"><img src="/public/images/reset.png" alt="reset" width="20"
-                                               height="20"></a>
-    </form>
-    <?php if ($users != false) { ?>
-            <?php if (isset($_GET["filter"])) { ?><p style="padding:5px;">Résulat pour
-                : "<?= $_GET["filter"] ?>"</p><?php } ?>
-            <?php if (isset($_GET["type"])) { ?>
-                <p style="padding-left:10px;">Inscription entre le <?= $_GET["from_date"] ?> et
-                    le <?= $_GET["to_date"] ?></p>
-                <p style="padding-left:10px;">Genre
-                    : <?= $_GET["sex"] == 0 ? "Homme" : ($_GET["sex"] == 1 ? "Femme" : "Autre") ?></p>
-                <p style="padding-left:10px;">Nom : <?= $_GET["nom"] ?></p>
-                <p style="padding-left:10px;">Prénom : <?= $_GET["prenom"] ?></p>
-                <p style="padding-left:10px;">Mail : <?= $_GET["mail"] ?></p>
-                <p style="padding-left:10px;">Tel : <?= $_GET["tel"] ?></p>
-            <?php } ?>
-    <table id="userTable">
-        <tr class="darkBck table__head">
-            <th onclick="sortTable(0)">Nom</th>
-            <th onclick="sortTable(1)">Prénom</th>
-            <th onclick="sortTable(2)">Mail</th>
-            <th onclick="sortTable(3)">Inscription</th>
-            <th class="table_more"></th>
-        </tr>
-        <tr id="newUser" class="table__row">
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th class="inline_input"><input type="button" onclick="location.href='/users/create';" value="Nouveau"></th>
-        </tr>
-        <?php foreach ($users as $user) { ?>
-            <tr id="<?= $user['NSS'] ?>" class="table__row"
-                style="<?= $user["is_suspended"] == 1 ? 'color:red;' : '' ?>">
-                <th ><?= $user["Prenom"] ?></th>
-                <th ><?= $user["Nom"] ?></th>
-                <th ><?= $user["Mail"] ?></th>
-                <th ><?= $user["Creation_Date"] ?></th>
-                <th ><a class="go_to_detail" href="/users/profil/<?= $user["NSS"] ?>">+</a></th>
+
+    <div id="userNav" class="content-card">
+
+        <button onclick="$('#userCreate').addClass('active');" class="lib-btn lib-green-btn">Ajouter un utilisateurs</button>
+        <button onclick="window.location.href='/profil'" class="lib-btn lib-pink-btn">Paramêtre des utilisateurs </button>
+        <button onclick="window.location.href='/tchat';" class="lib-btn lib-blue-btn">Méssagerie</button>
+
+    </div>
+
+    <div id="userCreate" class="content-card">
+        <i id="closeCreateUser" class="fas fa-times"></i>
+
+        <form id="createForm">
+            <h3>Création d'un utilisateur</h3>
+            <div id="createContent">
+
+                <div>
+                    <p>Numéro de sécurité social</p>
+                    <input required class="NSS" name="NSS" placeholder="NSS" type="text" inputmode="numeric" maxlength=13 pattern="[12]{1}\d{12}" autocomplete="off" value="<?= $_POST['NSS'] ?? '' ?>">
+                </div>
+
+                <div>
+                    <p>Information Personnels</p>
+                    <input required type="text" name="prenom" placeholder="Prénom" value="<?= $_POST['prenom'] ?? '' ?>">
+                    <input required type="text" name="nom" placeholder="Nom" value="<?= $_POST['nom'] ?? '' ?>">
+                    <input required type="email" name="mail" placeholder="Mail" value="<?= $_POST['mail'] ?? '' ?>">
+                    <input required type="text" name="tel" placeholder="Téléphone" inputmode="numeric" pattern="0[0-9]{9}" value="<?= $_POST['tel'] ?? '' ?>">
+                </div>
+                <div>
+                    <p>Adresse :</p>
+                    <input required type="text" name="adress_1" placeholder="Ligne 1" value="<?= $_POST['adress_1'] ?? '' ?>">
+                    <input type="text" name="adress_2" placeholder="Ligne 2" value="<?= $_POST['adress_2'] ?? '' ?>">
+                    <input required type="text" name="postal" placeholder="Code Postal" pattern="[0-9]{5}" value="<?= $_POST['postal'] ?? '' ?>">
+                    <input required type="text" name="city" placeholder="Ville" value="<?= $_POST['city'] ?? '' ?>">
+                </div>
+            </div>
+            <input id="createSubmit" type="button" value="Ajouter">
+        </form>
+
+    </div>
+
+    <div id="userSearchModal" class="content-card">
+        <i id="closeSearchModal" class="fas fa-times"></i>
+        <form id="advancedSearch">
+            <!--<h2>Recherche avancée</h2>-->
+            <div>
+                <h3>Mode de recherche</h3>
+                <div>
+                    <label for="or">OU</label>
+                    <input checked type="radio" id="or" name="type" value="OR">
+                </div>
+                <div>
+                    <label for="and">ET</label>
+                    <input type="radio" id="and" name="type" value="AND">
+                </div>
+            </div>
+            <div>
+                <h3>Date d'inscription</h3>
+                <div>
+                    <span>Du </span>
+                    <input type="date" name="from_date"/>
+                </div>
+                <div>
+                    <span> au </span>
+                    <input type="date" name="to_date"/>
+                </div>
+            </div>
+            <div>
+                <h3>Genre</h3>
+                <div>
+                    <label for="male">Homme</label>
+                    <input checked type="radio" id="male" name="sex" value="0">
+                </div>
+                <div>
+                    <label for="female">Femme</label>
+                    <input type="radio" id="female" name="sex" value="1">
+                </div>
+            </div>
+            <div id="userSearchFields">
+                <h3>Filtres</h3>
+                <div>
+                    <input type="text" placeholder="Nom" name="nom">
+                    <input type="text" placeholder="Pénom" name="prenom">
+                    <input type="text" placeholder="Mail" name="mail">
+                    <input type="text" placeholder="Téléphone" name="tel">
+                </div>
+            </div>
+            <button type="button" id="advancedSearchSubmit" type="button"><span>Search</span></button>
+        </form>
+    </div>
+
+    <div id="userList" class="content-card">
+        <form id="userSearch">
+            <input type="text" id="searchBar" name="filter" placeholder="Critère">
+            <input id="searchSubmit" type="button" value="Search">
+            <a id="searchReset"><i class="fas fa-redo-alt"></i></a>
+        </form>
+        <div id="usersLoading">
+            <div id="loader"></div>
+        </div>
+        <?php if ($users != false) { ?>
+            <table class="lib-table" id="userTable">
+                <tr>
+                    <th onclick="sortTable(0)">Prénom</th>
+                    <th onclick="sortTable(1)">Nom</th>
+                    <th onclick="sortTable(2)">Mail</th>
+                    <th onclick="sortTable(3)">Inscription</th>
+                    <th class="table_more"></th>
+                </tr>
+                <?php foreach ($users as $user) { ?>
+                    <tr id="<?= $user['NSS'] ?>" class="UsersTableRow"
+                        style="<?= $user["is_suspended"] == 1 ? 'color:red;' : '' ?>">
+                        <td ><?= $user["Prenom"] ?></td>
+                        <td ><?= $user["Nom"] ?></td>
+                        <td ><?= $user["Mail"] ?></td>
+                        <td ><?= $user["Creation_Date"] ?></td>
+                        <td ><a class="" href="/users/profil/<?= $user["NSS"] ?>"><i class="fas fa-angle-double-right"></i></a></td>
+                    </tr>
+                <?php } ?>
+            </table>
+            <?php
+        } else {
+            ?>
+        <table class="lib-table" id="userTable">
+            <tr>
+                <th onclick="sortTable(0)">Prénom</th>
+                <th onclick="sortTable(1)">Nom</th>
+                <th onclick="sortTable(2)">Mail</th>
+                <th onclick="sortTable(3)">Inscription</th>
+                <th class="table_more"></th>
             </tr>
+        </table>
         <?php } ?>
-        <tr class="darkBck table__foot">
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </table>
-    <?php
-    } else {
-        ?>
-        <h1>Aucun Résultat</h1>
-    <?php } ?>
-</div>
+    </div>
+</section>
 
 <script>
-    const modal = document.getElementById("searchModal");
-    const btn = document.getElementById("searchSubmit");
+
+    function register_popup_closer() {
+        $('.popup').click(function (e) {
+            e.target.remove();
+        })
+    }
+
+    /*
+    Handle basic search
+    */
     const bar = document.getElementById("searchBar");
-    btn.onclick = function () {
+    $('#searchSubmit').click(function () {
         if (bar.value == "") {
-            modal.style.display = "block";
+            // Display the complex search modal
+            $('#userSearchModal').addClass("active");
+            return;
         }
-        //sinon rechercher
-    }
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    const searchbar = document.getElementById("searchBar");
-    document.getElementById("userSearch").addEventListener("submit", e => {
-        if (searchbar.value == "") {
-            e.preventDefault();
-        }
+        // update table with filter
+        $.get("/users/json", {filter: bar.value}, function(res) {
+            const users = JSON.parse(res);
+            update_table(users);
+            bar.value = "";
+        })
     });
 
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("userTable");
+    /*
+    Handle closing advance search
+    */
+    $('#closeSearchModal').click(function () {
+        $('#userSearchModal').removeClass("active");
+    });
 
-        headers = table.rows[0];
-        current = headers.getElementsByTagName("TH")[n];
+    /*
+    Handle closing create user
+    */
+    $('#closeCreateUser').click(function () {
+        $('#userCreate').removeClass("active");
+    });
 
-        for (i = 0; i < headers.getElementsByTagName("TH").length - 1; i++) {
-            //headers.getElementsByTagName("TH")[i].innerHTML = header_names[i];
-            headers.getElementsByTagName("TH")[i].classList.remove("sort__asc");
-            headers.getElementsByTagName("TH")[i].classList.remove("sort__desc");
+    /*
+    Handle advanced search
+     */
+    $('#advancedSearchSubmit').click(function () {
+        const dataArr = $("#advancedSearch").serializeArray();
+        let data = {};
+        for (let el of dataArr) {
+            data[el["name"]] = el["value"];
         }
+        // update table
+        $.get("/users/json", data, function(res) {
+            const users = JSON.parse(res);
+            console.log(res);
+            update_table(users);
+        })
+    });
 
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 2); i++) {
-                if (rows[i].id == "newUser") {
-                    continue;
-                }
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TH")[n];
-                y = rows[i + 1].getElementsByTagName("TH")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
+    /*
+    Handle search reset
+     */
+    $("#searchReset").click(function () {
+        $.get("/users/json", function(res) {
+            const users = JSON.parse(res);
+            update_table(users);
+        })
+    });
+
+    $("#createSubmit").click(function () {
+        const dataArr = $("#createForm").serializeArray();
+        let data = {};
+        for (let el of dataArr) {
+            data[el["name"]] = el["value"];
         }
-        cl = "sort__" + dir;
-        current.classList.add(cl);
+        $("#usersLoading").addClass("active");
+        $.post("/users/create", data, function (res) {
+            res = JSON.parse(res);
+            if (res["success"] == true) {
+                $.get("/users/json", function(res) {
+                    const users = JSON.parse(res);
+                    update_table(users);
+                })
+                $("html").append(`<div class="popup green">
+                    <p>${res['msg']}</p>
+                    </div>`)
+            }
+            else {
+                $("html").append(`<div class="popup red">
+                    <p>${res['msg']}</p>
+                    </div>`)
+            }
+            register_popup_closer();
+            $("#usersLoading").removeClass("active");
+        });
+    });
+
+    /*
+    Function to update a table
+     */
+    function update_table(users) {
+        $(".UsersTableRow").remove();
+        for (let user of users) {
+            let nrow = `<tr id="${user['NSS']}" class="UsersTableRow"
+                        style="${user['is_suspended']==1 ? 'color:red;' : ''}">
+                        <td >${user['Prenom']}</td>
+                        <td >${user['Nom']}</td>
+                        <td >${user['Mail']}</td>
+                        <td >${user["Creation_Date"]}</td>
+                        <td ><a class="" href="/users/profil/${user['NSS']}"><i class="fas fa-angle-double-right"></i></a></td>
+                    </tr>`;
+            $("#userTable > tbody").append(nrow);
+        }
     }
+
+
 </script>
 
 <?php $content = ob_get_clean(); ?>

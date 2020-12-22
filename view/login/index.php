@@ -16,13 +16,15 @@
                value="<?= isset($_COOKIE["auto_log_password"]) ? $_COOKIE["auto_log_password"] : '' ?>">
 
         <input id="loginSubmit" type="submit" name="" value="Se connecter">
-        <label class="label">
-            <div class="toggle">
-                <input class="toggle-state" type="checkbox" name="rememberme" value="check" />
-                <div class="indicator"></div>
+
+        <section title=".rembMe" class="hflex flex-even">
+            <p>Se souvenir de moi :</p>
+            <div class="rembMe">
+                <input type="checkbox" value="None" id="rememberme" name="check" checked />
+                <label for="rememberme"></label>
             </div>
-            <div class="label-text">Se souvenir de moi</div>
-        </label>
+        </section>
+
         <a href="mdp_oublie.html">Mot de passe oublié ?</a>
 
 

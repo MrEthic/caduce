@@ -1,7 +1,7 @@
 <nav>
     <div class="wrapper">
         <!-------------------Insertion du logo dans la barre de navigation--------------------------->
-        <img id="sport" src="images/logo.png" style="float:right;width:50px;height:50px;">
+        <img id="sport" src="/public/images/logo.png" style="float:right;width:50px;height:50px;">
 
 
         <!---------------input type radio pour ouvrir/fermer barre de navigation lorsqu'on rétrécit l'écran ----------------------------->
@@ -14,30 +14,37 @@
             <!---------------------classe nommée btn close-btn déclarée en haut-------------------------------->
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
 
-            <li><a href="home">Accueil</a></li>
+            <li><a href="/home">Accueil</a></li>
 
             <!---L'élément HTML <li> est utilisé pour représenter un élément dans une liste.--->
             <!---Il doit être contenu dans un élément parent : une liste ordonnée (<ol>) ou bien une liste non ordonnée (<ul>) --->
             <?php if (!isset($_SESSION["ROLE"])) { ?>
-                <li><a href="login">Connexion</a></li>
-            <?php } else if ($_SESSION["ROLE"] == 7) { ?>
-                <li><a href="users">Utilisateurs</a></li>
-                <li><a href="tchat">Méssagerie</a></li>
-                <li><a href="tickets">Tickets</a></li>
+                <li><a href="/login">Connexion</a></li>
+            <?php } else { ?>
+                <?php if ($_SESSION["ROLE"] == 7) { ?>
+            <li><a href="/users">Utilisateurs</a></li>
+            <li><a href="/tchat">Méssagerie</a></li>
+            <li><a href="/tickets">Tickets</a></li>
+                <?php } ?>
+            <?php if ($_SESSION["ROLE"] == 6) { ?>
+            <li><a href="/tchat">Méssagerie</a></li>
+            <?php } ?>
+
                 <li>
-                    <a href="connexion.html" class="desktop-item">Mon compte</a>
+                    <a href="/profil" class="desktop-item">Mon compte</a>
                     <input type="checkbox" id="showDrop">
                     <!----------------Supprimer la ligne du dessous fera disparaître la rubrique mon compte lorsqu'on rétrécit l'écran--------->
                     <label for="showDrop" class="mobile-item">Mon compte</label>
                     <ul class="drop-menu">
-                        <li><a href="profil">Mon Profil</a></li>
-                        <li><a href="logout">Deconnexion</a></li>
+                        <li><a href="/profil">Mon Profil</a></li>
+                        <li><a href="/logout">Deconnexion</a></li>
                     </ul>
                 </li>
             <?php } ?>
 
 
-            <li><a href="#">FAQ</a></li>
+
+            <li><a href="/faq">FAQ</a></li>
 
         </ul> <!---Fin de la classe nav-links qui représente tout le contenu de la barre de navigation--->
 
