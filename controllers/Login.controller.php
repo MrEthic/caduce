@@ -3,7 +3,6 @@
 namespace caducee\Controller;
 // 50163181163dd777
 require_once(DIR . "/controllers/Controller.php");
-require_once(DIR . "/exceptions/AlertException.php");
 
 class Login extends Controller
 {
@@ -38,7 +37,7 @@ class Login extends Controller
                 exit();
             }
         } else {
-            throw new caducee\Exception\AlertException("Tout les champs doivent etre complété !", "BAD");
+            // TODO : les champs doivent etre complété
         }
     }
 
@@ -60,13 +59,11 @@ class Login extends Controller
     private function check_user($user, string $password): bool
     {
         if (!$user) { //Aucun user avec ce mail
-            require(DIR . "/utils/alert.php");
-            alert("Email incorect");
+            // TODO : Aucun user avec ce mail
             return false;
         } else if (password_verify($password, $user["hash_password"])) {
             if ($user["is_suspended"] == 1) {
-                require(DIR . "/utils/alert.php");
-                alert("Votre compte est suspendu");
+                // TODO : compte suspendu
                 exit();
             }
             $_SESSION['NSS'] = $user['NSS'];
@@ -77,7 +74,7 @@ class Login extends Controller
             $_SESSION['hid'] = $user["id_hospital"];
             return true;
         } else {
-            throw new \caducee\Exception\AlertException("Mauvais mot de passe");
+            // TODO : mauvais mot de passe
             return false;
         }
     }

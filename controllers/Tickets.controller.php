@@ -8,6 +8,7 @@ class tickets extends Controller
 {
 
     public function index() {
+        $this->admin();
         $this->render("index");
     }
 

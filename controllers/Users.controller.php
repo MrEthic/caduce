@@ -3,7 +3,6 @@
 namespace caducee\Controller;
 
 require_once(DIR . "/controllers/Controller.php");
-require_once(DIR . "/exceptions/AlertException.php");
 require_once(DIR . "/utils/validation.php");
 
 /**
@@ -20,6 +19,9 @@ class Users extends Controller
     public function index(): void
     {
         $this->gestionaire();
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            header("Location: /");
+        }
         $this->load_model("Users");
         $users = $this->Users->get_hospital($_SESSION["hid"]);
         $this->render("index", ["users" => $users]);
@@ -33,6 +35,9 @@ class Users extends Controller
      */
     public function json() {
         $this->gestionaire();
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            header("Location: /");
+        }
         $this->load_model("Users");
         if (isset($_GET["filter"])) {
             $filter = validate_input($_GET["filter"]);
@@ -70,6 +75,9 @@ class Users extends Controller
     public function profil(string $id): void
     {
         $this->gestionaire();
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            header("Location: /");
+        }
         $this->load_model("Users");
         $id = validate_input($id, null, "/^[12]\d{12}$/");
         $this->Users->id = $id;
@@ -87,8 +95,10 @@ class Users extends Controller
     public function create(): void
     {
         $this->gestionaire();
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header("Location: /");
+        }
         $this->load_model("Users", $_SESSION["hid"]);
-        //$this->render("create", []);
         if (isset($_POST["NSS"])) {
             echo json_encode($this->post_create());
         }
