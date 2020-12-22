@@ -3,14 +3,14 @@
 namespace caducee;
 
 use caducee\Controller\Home;
-use caducee\Exception\AlertException as AlertException;
 use caducee\Exception\AccessException as AccessException;
+use Exception;
+use PDOException;
 
 define("DIR", getcwd());
 
 
 require_once(DIR . "/config/config.php");
-require_once(DIR . "/exceptions/AlertException.php");
 require_once(DIR . "/exceptions/AccessException.php");
 
 // Check si le user et ou non connecté et quel type de compte il
@@ -46,10 +46,6 @@ try {
         $home->index();
     }
 }
-catch (AlertException $e) {
-    //require(DIR . "/view/alert.view.php");
-    //pop_alert($e->getMessage(), $e->getType());
-}
 catch (AccessException $e) {
     // TODO : Qlq chose de propre quand on a pas les droits d'acces
     ignore_user_abort(true);
@@ -57,12 +53,12 @@ catch (AccessException $e) {
     header("Location: /home");
     echo "hey";
 }
-catch (\PDOException $e) {
+catch (PDOException $e) {
     require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->pdo($e);
 }
-catch (\Exception $e) {
+catch (Exception $e) {
     require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->index($e);
