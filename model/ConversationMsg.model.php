@@ -5,12 +5,22 @@ namespace caducee\Model;
 require_once(DIR . "/model/Model.php");
 
 
+/**
+ * Class ConversationMsg
+ * @package caducee\Model
+ * Database model for Conversation Message
+ */
 class ConversationMsg extends Model
 {
 
     private int $cid;
     private int $is_answer;
 
+    /**
+     * ConversationMsg constructor.
+     * @param int $cid
+     * @param bool $is_user
+     */
     public function __construct(int $cid, bool $is_user)
     {
         $this->is_answer = $is_user ? 0 : 1;
@@ -20,6 +30,10 @@ class ConversationMsg extends Model
         $this->get_connection();
     }
 
+    /**
+     * Get all message of a conversation
+     * @return mixed
+     */
     public function get_conv()
     {
         $sql = "SELECT * FROM conv_message WHERE id_conversation=:cid ORDER BY sent_datetime DESC";
@@ -29,6 +43,11 @@ class ConversationMsg extends Model
     }
 
     // UPDATE user u INNER JOIN conversation c ON u.NSS=c.id_user SET u.notify=1 WHERE c.id_conv=5;
+
+    /**
+     * Add a message to the conversation
+     * @param string $msg
+     */
     public function new_msg(string $msg)
     {
 

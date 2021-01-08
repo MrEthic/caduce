@@ -4,9 +4,17 @@ namespace caducee\Model;
 
 require_once(DIR . "/model/Model.php");
 
+/**
+ * Class auth
+ * @package caducee\Model
+ * Database model for auth purpose
+ */
 class auth extends Model
 {
 
+    /**
+     * auth constructor.
+     */
     public function __construct()
     {
         $this->table = "user";

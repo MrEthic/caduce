@@ -1,6 +1,8 @@
 <?php
 
 namespace caducee\Model;
+use Exception;
+
 require_once(DIR . "/model/Model.php");
 
 /**

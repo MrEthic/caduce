@@ -4,9 +4,17 @@ namespace caducee\Controller;
 // 50163181163dd777
 require_once(DIR . "/controllers/Controller.php");
 
+/**
+ * Class Login
+ * @package caducee\Controller
+ * Handle /login routes
+ */
 class Login extends Controller
 {
 
+    /**
+     * Display login Page is user is not login, else redirect to /profil
+     */
     public function index() : void
     {
         // L'utilisateur est déja connécté
@@ -23,6 +31,11 @@ class Login extends Controller
         $this->render("index", []);
     }
 
+    /**
+     * Post request on /login
+     *
+     * Validate user connection
+     */
     private function post_login() : void {
         $mail = htmlspecialchars($_POST['mailconnect']);
         $password = htmlspecialchars($_POST['mdpconnect']);
@@ -41,6 +54,9 @@ class Login extends Controller
         }
     }
 
+    /**
+     * Try auto connect with cookies values
+     */
     private function try_auto_connect()
     {
         if (isset($_COOKIE['auto_log_mail'], $_COOKIE['auto_log_password'])
@@ -56,6 +72,12 @@ class Login extends Controller
         }
     }
 
+    /**
+     * Check if the user is valid
+     * @param $user
+     * @param string $password
+     * @return bool
+     */
     private function check_user($user, string $password): bool
     {
         if (!$user) { //Aucun user avec ce mail

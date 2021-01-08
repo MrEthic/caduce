@@ -70,23 +70,27 @@ class Users extends Controller
     /**
      * Profil page of a specific user
      *
-     * @param string $id Id of the user
+     * @param string $uid Id of the user
+     * @throws \caducee\Exception\AccessException If user is not allowed to access this page
      */
-    public function profil(string $id): void
-    {
+    public function profil(string $uid) : void {
         $this->gestionaire();
-        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            header("Location: /");
-        }
         $this->load_model("Users");
-        $id = validate_input($id, null, "/^[12]\d{12}$/");
+        $id = validate_input($uid, null, "/^[12]\d{12}$/");
         $this->Users->id = $id;
         $user = $this->Users->get_one();
-        if ($user === false) {
+        if (!$user) {
             header("Location: /users");
-        } else {
-            $this->render("profil", ["user" => $user]);
         }
+        $this->load_model("Conversation", $_SESSION["hid"]);
+        $this->Conversation->id = $uid;
+        $conv = $this->Conversation->get_one();
+        $this->load_model("ConversationMsg", $conv["id_conv"], false);
+        if(isset($_POST["msg_content"])) {
+            $this->ConversationMsg->new_msg($_POST["msg_content"]);
+        }
+        $conv_msg = $this->ConversationMsg->get_conv();
+        $this->render("profil", ["conv" => $conv, "msgs" => $conv_msg, "user"=>$user]);
     }
 
     /**

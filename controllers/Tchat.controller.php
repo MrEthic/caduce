@@ -3,10 +3,20 @@
 namespace caducee\Controller;
 
 require_once(DIR . "/controllers/Controller.php");
+require_once(DIR . "/utils/validation.php");
 
+/**
+ * Class Tchat
+ * @package caducee\Controller
+ * Handle /tchat routes
+ */
 class Tchat extends Controller
 {
 
+    /**
+     * Display the tchat page
+     * @throws \caducee\Exception\AccessException
+     */
     public function index() : void {
         $this->isLoged();
         if ($_SESSION["ROLE"] == 6) {
@@ -17,6 +27,9 @@ class Tchat extends Controller
         }
     }
 
+    /**
+     * Tchat page for user
+     */
     private function user_index() {
         $this->load_model("Conversation", $_SESSION["hid"]);
         $this->Conversation->id = $_SESSION["NSS"];
@@ -29,11 +42,18 @@ class Tchat extends Controller
         $this->render("tchat", ["conv" => $conv, "msgs" => $conv_msg]);
     }
 
+    /**
+     * Handle /t/:uid the tchat page with a user
+     * @param string $uid
+     * @throws \caducee\Exception\AccessException
+     */
     public function t(string $uid) : void {
         $this->gestionaire();
         $this->load_model("Users");
-        $this->Users->id = $uid;
-        if (!$this->Users->get_one()) {
+        $id = validate_input($uid, null, "/^[12]\d{12}$/");
+        $this->Users->id = $id;
+        $user = $this->Users->get_one();
+        if (!$user) {
             header("Location: /users");
         }
         $this->load_model("Conversation", $_SESSION["hid"]);
@@ -44,7 +64,7 @@ class Tchat extends Controller
             $this->ConversationMsg->new_msg($_POST["msg_content"]);
         }
         $conv_msg = $this->ConversationMsg->get_conv();
-        $this->render("tchat", ["conv" => $conv, "msgs" => $conv_msg]);
+        $this->render("tchat", ["conv" => $conv, "msgs" => $conv_msg, "user"=>$user]);
     }
 
 }
