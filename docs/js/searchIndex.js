@@ -8,7 +8,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003Aload_model\u0028\u0029",
             "name": "load_model",
-            "summary": "Load\u0020a\u0020Model\u0020class",
+            "summary": "Load\u0020a\u0020Model\u0020class\u0020and\u0020append\u0020params",
             "url": "classes/caducee-Controller-Controller.html#method_load_model"
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003Arender\u0028\u0029",
@@ -18,22 +18,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003AisLoged\u0028\u0029",
             "name": "isLoged",
-            "summary": "",
+            "summary": "Throw\u0020an\u0020error\u0020if\u0020user\u0020is\u0020not\u0020login",
             "url": "classes/caducee-Controller-Controller.html#method_isLoged"
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003Aadmin\u0028\u0029",
             "name": "admin",
-            "summary": "",
+            "summary": "Throw\u0020an\u0020error\u0020if\u0020user\u0020is\u0020not\u0020an\u0020admin",
             "url": "classes/caducee-Controller-Controller.html#method_admin"
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003Agestionaire\u0028\u0029",
             "name": "gestionaire",
-            "summary": "",
+            "summary": "Throw\u0020an\u0020error\u0020if\u0020user\u0020is\u0020not\u0020a\u0020gestionaire",
             "url": "classes/caducee-Controller-Controller.html#method_gestionaire"
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003Auser\u0028\u0029",
             "name": "user",
-            "summary": "",
+            "summary": "Throw\u0020an\u0020error\u0020if\u0020user\u0020is\u0020not\u0020a\u0020User",
             "url": "classes/caducee-Controller-Controller.html#method_user"
         },                {
             "fqsen": "\\caducee\\Controller\\Controller\u003A\u003A\u0024name",
@@ -51,10 +51,10 @@ Search.appendIndex(
             "summary": "Render\u0020all\u0020the\u0020users",
             "url": "classes/caducee-Controller-Users.html#method_index"
         },                {
-            "fqsen": "\\caducee\\Controller\\Users\u003A\u003Apost_create\u0028\u0029",
-            "name": "post_create",
-            "summary": "Create\u0020a\u0020user",
-            "url": "classes/caducee-Controller-Users.html#method_post_create"
+            "fqsen": "\\caducee\\Controller\\Users\u003A\u003Ajson\u0028\u0029",
+            "name": "json",
+            "summary": "Fetch\u0020users",
+            "url": "classes/caducee-Controller-Users.html#method_json"
         },                {
             "fqsen": "\\caducee\\Controller\\Users\u003A\u003Aprofil\u0028\u0029",
             "name": "profil",
@@ -65,6 +65,11 @@ Search.appendIndex(
             "name": "create",
             "summary": "Create\u0020user\u0020page",
             "url": "classes/caducee-Controller-Users.html#method_create"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Users\u003A\u003Apost_create\u0028\u0029",
+            "name": "post_create",
+            "summary": "Create\u0020a\u0020user",
+            "url": "classes/caducee-Controller-Users.html#method_post_create"
         },                {
             "fqsen": "\\caducee\\Model\\Model",
             "name": "Model",
@@ -131,84 +136,84 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/caducee-Model-Model.html#property_from"
         },                {
-            "fqsen": "\\ErrorC",
+            "fqsen": "\\caducee\\Controller\\ErrorC",
             "name": "ErrorC",
             "summary": "Error\u0020Controller,\u0020handle\u0020all\u0020errors",
-            "url": "classes/ErrorC.html"
+            "url": "classes/caducee-Controller-ErrorC.html"
         },                {
-            "fqsen": "\\ErrorC\u003A\u003Apdo\u0028\u0029",
+            "fqsen": "\\caducee\\Controller\\ErrorC\u003A\u003Apdo\u0028\u0029",
             "name": "pdo",
             "summary": "Handle\u0020PDO\u0020exceptions",
-            "url": "classes/ErrorC.html#method_pdo"
+            "url": "classes/caducee-Controller-ErrorC.html#method_pdo"
         },                {
-            "fqsen": "\\ErrorC\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\caducee\\Controller\\ErrorC\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "Handle\u0020all\u0020other\u0020exceptions",
-            "url": "classes/ErrorC.html#method_index"
+            "url": "classes/caducee-Controller-ErrorC.html#method_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Home",
             "name": "Home",
-            "summary": "Class\u0020Controller",
+            "summary": "Class\u0020Home",
             "url": "classes/caducee-Controller-Home.html"
         },                {
             "fqsen": "\\caducee\\Controller\\Home\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Display\u0020home\u0020page",
             "url": "classes/caducee-Controller-Home.html#method_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Login",
             "name": "Login",
-            "summary": "Class\u0020Controller",
+            "summary": "Class\u0020Login",
             "url": "classes/caducee-Controller-Login.html"
         },                {
             "fqsen": "\\caducee\\Controller\\Login\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Display\u0020login\u0020Page\u0020is\u0020user\u0020is\u0020not\u0020login,\u0020else\u0020redirect\u0020to\u0020\/profil",
             "url": "classes/caducee-Controller-Login.html#method_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Login\u003A\u003Apost_login\u0028\u0029",
             "name": "post_login",
-            "summary": "",
+            "summary": "Post\u0020request\u0020on\u0020\/login",
             "url": "classes/caducee-Controller-Login.html#method_post_login"
         },                {
             "fqsen": "\\caducee\\Controller\\Login\u003A\u003Atry_auto_connect\u0028\u0029",
             "name": "try_auto_connect",
-            "summary": "",
+            "summary": "Try\u0020auto\u0020connect\u0020with\u0020cookies\u0020values",
             "url": "classes/caducee-Controller-Login.html#method_try_auto_connect"
         },                {
             "fqsen": "\\caducee\\Controller\\Login\u003A\u003Acheck_user\u0028\u0029",
             "name": "check_user",
-            "summary": "",
+            "summary": "Check\u0020if\u0020the\u0020user\u0020is\u0020valid",
             "url": "classes/caducee-Controller-Login.html#method_check_user"
         },                {
             "fqsen": "\\caducee\\Controller\\Logout",
             "name": "Logout",
-            "summary": "Class\u0020Controller",
+            "summary": "Class\u0020Logout",
             "url": "classes/caducee-Controller-Logout.html"
         },                {
             "fqsen": "\\caducee\\Controller\\Logout\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Disconnect\u0020user",
             "url": "classes/caducee-Controller-Logout.html#method_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Tchat",
             "name": "Tchat",
-            "summary": "Class\u0020Controller",
+            "summary": "Class\u0020Tchat",
             "url": "classes/caducee-Controller-Tchat.html"
         },                {
             "fqsen": "\\caducee\\Controller\\Tchat\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Display\u0020the\u0020tchat\u0020page",
             "url": "classes/caducee-Controller-Tchat.html#method_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Tchat\u003A\u003Auser_index\u0028\u0029",
             "name": "user_index",
-            "summary": "",
+            "summary": "Tchat\u0020page\u0020for\u0020user",
             "url": "classes/caducee-Controller-Tchat.html#method_user_index"
         },                {
             "fqsen": "\\caducee\\Controller\\Tchat\u003A\u003At\u0028\u0029",
             "name": "t",
-            "summary": "",
+            "summary": "Handle\u0020\/t\/\u003Auid\u0020the\u0020tchat\u0020page\u0020with\u0020a\u0020user",
             "url": "classes/caducee-Controller-Tchat.html#method_t"
         },                {
             "fqsen": "\\caducee\\Exception\\AccessException",
@@ -221,34 +226,14 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/caducee-Exception-AccessException.html#method___construct"
         },                {
-            "fqsen": "\\caducee\\Exception\\AlertException",
-            "name": "AlertException",
-            "summary": "",
-            "url": "classes/caducee-Exception-AlertException.html"
-        },                {
-            "fqsen": "\\caducee\\Exception\\AlertException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/caducee-Exception-AlertException.html#method___construct"
-        },                {
-            "fqsen": "\\caducee\\Exception\\AlertException\u003A\u003AgetType\u0028\u0029",
-            "name": "getType",
-            "summary": "",
-            "url": "classes/caducee-Exception-AlertException.html#method_getType"
-        },                {
-            "fqsen": "\\caducee\\Exception\\AlertException\u003A\u003A\u0024type",
-            "name": "type",
-            "summary": "",
-            "url": "classes/caducee-Exception-AlertException.html#property_type"
-        },                {
             "fqsen": "\\caducee\\Model\\auth",
             "name": "auth",
-            "summary": "Class\u0020Model",
+            "summary": "Class\u0020auth",
             "url": "classes/caducee-Model-auth.html"
         },                {
             "fqsen": "\\caducee\\Model\\auth\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "auth\u0020constructor.",
             "url": "classes/caducee-Model-auth.html#method___construct"
         },                {
             "fqsen": "\\caducee\\Model\\auth\u003A\u003Aauthenticator\u0028\u0029",
@@ -258,42 +243,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\caducee\\Model\\Conversation",
             "name": "Conversation",
-            "summary": "Class\u0020Model",
+            "summary": "Class\u0020Conversation",
             "url": "classes/caducee-Model-Conversation.html"
         },                {
             "fqsen": "\\caducee\\Model\\Conversation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Conversation\u0020constructor.",
             "url": "classes/caducee-Model-Conversation.html#method___construct"
         },                {
             "fqsen": "\\caducee\\Model\\Conversation\u003A\u003Aget_all\u0028\u0029",
             "name": "get_all",
-            "summary": "Return\u0020all\u0020rows\u0020of\u0020the\u0020corresponding\u0020table",
+            "summary": "Get\u0020all\u0020conversation",
             "url": "classes/caducee-Model-Conversation.html#method_get_all"
         },                {
             "fqsen": "\\caducee\\Model\\Conversation\u003A\u003Aget_one\u0028\u0029",
             "name": "get_one",
-            "summary": "Return\u0020the\u0020row\u0020corresponding\u0020to\u0020the\u0020id\u003B",
+            "summary": "Get\u0020one\u0020conversation\u0020corresponding\u0020to\u0020the\u0020id",
             "url": "classes/caducee-Model-Conversation.html#method_get_one"
         },                {
             "fqsen": "\\caducee\\Model\\ConversationMsg",
             "name": "ConversationMsg",
-            "summary": "Class\u0020Model",
+            "summary": "Class\u0020ConversationMsg",
             "url": "classes/caducee-Model-ConversationMsg.html"
         },                {
             "fqsen": "\\caducee\\Model\\ConversationMsg\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "ConversationMsg\u0020constructor.",
             "url": "classes/caducee-Model-ConversationMsg.html#method___construct"
         },                {
             "fqsen": "\\caducee\\Model\\ConversationMsg\u003A\u003Aget_conv\u0028\u0029",
             "name": "get_conv",
-            "summary": "",
+            "summary": "Get\u0020all\u0020message\u0020of\u0020a\u0020conversation",
             "url": "classes/caducee-Model-ConversationMsg.html#method_get_conv"
         },                {
             "fqsen": "\\caducee\\Model\\ConversationMsg\u003A\u003Anew_msg\u0028\u0029",
             "name": "new_msg",
-            "summary": "",
+            "summary": "Add\u0020a\u0020message\u0020to\u0020the\u0020conversation",
             "url": "classes/caducee-Model-ConversationMsg.html#method_new_msg"
         },                {
             "fqsen": "\\caducee\\Model\\ConversationMsg\u003A\u003A\u0024cid",
@@ -351,10 +336,105 @@ Search.appendIndex(
             "summary": "Send\u0020credential\u0020by\u0020mail\u0020to\u0020the\u0020user",
             "url": "classes/caducee-Model-Users.html#method_send_password"
         },                {
-            "fqsen": "\\pop_alert\u0028\u0029",
-            "name": "pop_alert",
+            "fqsen": "\\caducee\\Controller\\Api",
+            "name": "Api",
+            "summary": "Class\u0020Api",
+            "url": "classes/caducee-Controller-Api.html"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Api\u003A\u003Anotify\u0028\u0029",
+            "name": "notify",
+            "summary": "Wether\u0020or\u0020not\u0020the\u0020login\u0020user\u0020has\u0020to\u0020be\u0020notify\nResponse\u0020\u003A\u0020\u007B\u0022success\u0022\u0020\u003A\u00200\u007C1\u0020,\u0020\u0022msg\u0022\u003A\u0020String,\u0020\u0022notify\u0022\u0020\u003A\u00200\u007C1\u007D",
+            "url": "classes/caducee-Controller-Api.html#method_notify"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Cgu",
+            "name": "Cgu",
+            "summary": "Class\u0020Cgu",
+            "url": "classes/caducee-Controller-Cgu.html"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Cgu\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Display\u0020CGU",
+            "url": "classes/caducee-Controller-Cgu.html#method_index"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Faq",
+            "name": "Faq",
+            "summary": "Class\u0020Faq",
+            "url": "classes/caducee-Controller-Faq.html"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Faq\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Display\u0020FAQ",
+            "url": "classes/caducee-Controller-Faq.html#method_index"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Profil",
+            "name": "Profil",
+            "summary": "Class\u0020Profil",
+            "url": "classes/caducee-Controller-Profil.html"
+        },                {
+            "fqsen": "\\caducee\\Controller\\Profil\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Display\u0020user\u0020info",
+            "url": "classes/caducee-Controller-Profil.html#method_index"
+        },                {
+            "fqsen": "\\caducee\\Controller\\tickets",
+            "name": "tickets",
+            "summary": "Class\u0020tickets",
+            "url": "classes/caducee-Controller-tickets.html"
+        },                {
+            "fqsen": "\\caducee\\Controller\\tickets\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Display\u0020all\u0020tickets",
+            "url": "classes/caducee-Controller-tickets.html#method_index"
+        },                {
+            "fqsen": "\\caducee\\Model\\Api",
+            "name": "Api",
+            "summary": "Class\u0020Api",
+            "url": "classes/caducee-Model-Api.html"
+        },                {
+            "fqsen": "\\caducee\\Model\\Api\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Api\u0020constructor.",
+            "url": "classes/caducee-Model-Api.html#method___construct"
+        },                {
+            "fqsen": "\\caducee\\Model\\Api\u003A\u003Ais_notif\u0028\u0029",
+            "name": "is_notif",
+            "summary": "Check\u0020if\u0020the\u0020user\u0020has\u0020to\u0020be\u0020notified",
+            "url": "classes/caducee-Model-Api.html#method_is_notif"
+        },                {
+            "fqsen": "\\validate_input\u0028\u0029",
+            "name": "validate_input",
             "summary": "",
-            "url": "namespaces/default.html#function_pop_alert"
+            "url": "namespaces/default.html#function_validate_input"
+        },                {
+            "fqsen": "\\v_mail\u0028\u0029",
+            "name": "v_mail",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_mail"
+        },                {
+            "fqsen": "\\v_tel\u0028\u0029",
+            "name": "v_tel",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_tel"
+        },                {
+            "fqsen": "\\v_date\u0028\u0029",
+            "name": "v_date",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_date"
+        },                {
+            "fqsen": "\\v_int\u0028\u0029",
+            "name": "v_int",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_int"
+        },                {
+            "fqsen": "\\v_float\u0028\u0029",
+            "name": "v_float",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_float"
+        },                {
+            "fqsen": "\\v_bool\u0028\u0029",
+            "name": "v_bool",
+            "summary": "",
+            "url": "namespaces/default.html#function_v_bool"
         },                {
             "fqsen": "\\",
             "name": "\\",

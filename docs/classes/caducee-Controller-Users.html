@@ -60,6 +60,26 @@
                                     </ul>
                         </section>
 
+        <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                    <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
+                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/caducee.html"><abbr title="\caducee">caducee</abbr></a></h3>
+                        <ul class="phpdocumentor-list">
+                                    <li><a href="packages/caducee-ControllerHandleroutes.html"><abbr title="\caducee\ControllerHandleroutes">ControllerHandleroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerHandleloginroutes.html"><abbr title="\caducee\ControllerHandleloginroutes">ControllerHandleloginroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerHandlelogoutroutes.html"><abbr title="\caducee\ControllerHandlelogoutroutes">ControllerHandlelogoutroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerHandletchatroutes.html"><abbr title="\caducee\ControllerHandletchatroutes">ControllerHandletchatroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ModelDatabasemodelforauthpurpose.html"><abbr title="\caducee\ModelDatabasemodelforauthpurpose">ModelDatabasemodelforauthpurpose</abbr></a></li>
+                                    <li><a href="packages/caducee-ModelDatabasemodeforconversationtable.html"><abbr title="\caducee\ModelDatabasemodeforconversationtable">ModelDatabasemodeforconversationtable</abbr></a></li>
+                                    <li><a href="packages/caducee-ModelDatabasemodelforConversationMessage.html"><abbr title="\caducee\ModelDatabasemodelforConversationMessage">ModelDatabasemodelforConversationMessage</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerManageapiroutes.html"><abbr title="\caducee\ControllerManageapiroutes">ControllerManageapiroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerManagecguroutes.html"><abbr title="\caducee\ControllerManagecguroutes">ControllerManagecguroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerManagefaqroutes.html"><abbr title="\caducee\ControllerManagefaqroutes">ControllerManagefaqroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerHandleprofilroutes.html"><abbr title="\caducee\ControllerHandleprofilroutes">ControllerHandleprofilroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ControllerHandleticketsroutes.html"><abbr title="\caducee\ControllerHandleticketsroutes">ControllerHandleticketsroutes</abbr></a></li>
+                                    <li><a href="packages/caducee-ModelDatabasemodelforApipurpose.html"><abbr title="\caducee\ModelDatabasemodelforApipurpose">ModelDatabasemodelforApipurpose</abbr></a></li>
+                            </ul>
+                        </section>
     
     <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
@@ -88,6 +108,12 @@
         extends <a href="classes/caducee-Controller-Controller.html"><abbr title="\caducee\Controller\Controller">Controller</abbr></a>
     </span>
     
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Default.html">Default</a></li>
+                            </ul>
+        </div>
     
     
     </h2>
@@ -138,11 +164,18 @@
 <dd>Render all the users</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/caducee-Controller-Users.html#method_json">json()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Fetch users</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/caducee-Controller-Controller.html#method_load_model">load_model()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd>Load a Model class</dd>
+<dd>Load a Model class and append params</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/caducee-Controller-Users.html#method_profil">profil()</a>
@@ -163,33 +196,33 @@
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Throw an error if user is not an admin</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/caducee-Controller-Controller.html#method_gestionaire">gestionaire()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Throw an error if user is not a gestionaire</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/caducee-Controller-Controller.html#method_isLoged">isLoged()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Throw an error if user is not login</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/caducee-Controller-Controller.html#method_user">user()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Throw an error if user is not a User</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/caducee-Controller-Users.html#method_post_create">post_create()</a>
     <span>
-                        &nbsp;: void    </span>
+                        &nbsp;: mixed    </span>
 </dt>
 <dd>Create a user</dd>
 
@@ -221,7 +254,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 </aside>
 
     
@@ -231,7 +264,8 @@
     <span class="phpdocumentor-signature__name">$name</span>
     </code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -255,7 +289,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Users.controller.php"><a href="files/controllers-users-controller.html"><abbr title="controllers/Users.controller.php">Users.controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 </aside>
 
         <p class="phpdocumentor-summary">Create user page</p>
@@ -289,7 +323,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Users.controller.php"><a href="files/controllers-users-controller.html"><abbr title="controllers/Users.controller.php">Users.controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 </aside>
 
         <p class="phpdocumentor-summary">Render all the users</p>
@@ -316,6 +350,56 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_json">
+        json()
+        <a href="classes/caducee-Controller-Users.html#method_json" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="controllers/Users.controller.php"><a href="files/controllers-users-controller.html"><abbr title="controllers/Users.controller.php">Users.controller.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Fetch users</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">json</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>users in json format</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_load_model">
         load_model()
         <a href="classes/caducee-Controller-Controller.html#method_load_model" class="headerlink"><i class="fas fa-link"></i></a>
@@ -323,10 +407,10 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Load a Model class</p>
+        <p class="phpdocumentor-summary">Load a Model class and append params</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -350,7 +434,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Parameters to send to the model</p>
+</section>
 
             </dd>
             </dl>
@@ -384,14 +469,14 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">profil</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">profil</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$id</span>
+                <span class="phpdocumentor-signature__argument__name">$uid</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -402,6 +487,22 @@
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If user is not allowed to access this page</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -423,7 +524,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
         <p class="phpdocumentor-summary">Render a View</p>
@@ -478,15 +579,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throw an error if user is not an admin</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                 <span class="phpdocumentor-signature__name">admin</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$can_pass</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -494,11 +597,28 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>/TOBE DELETED</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -520,15 +640,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throw an error if user is not a gestionaire</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                 <span class="phpdocumentor-signature__name">gestionaire</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$can_pass</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -536,11 +658,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -562,17 +700,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throw an error if user is not login</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                 <span class="phpdocumentor-signature__name">isLoged</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+        <section class="phpdocumentor-description"></section>
+
     
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -594,15 +749,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Controller.php"><a href="files/controllers-controller.html"><abbr title="controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Throw an error if user is not a User</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                 <span class="phpdocumentor-signature__name">user</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$can_pass</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -610,11 +767,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/caducee-Exception-AccessException.html"><abbr title="\caducee\Exception\AccessException">AccessException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -636,14 +809,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="controllers/Users.controller.php"><a href="files/controllers-users-controller.html"><abbr title="controllers/Users.controller.php">Users.controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Create a user</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">post_create</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">post_create</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -651,7 +824,7 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
