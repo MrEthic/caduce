@@ -127,6 +127,7 @@ a {
     width: 50px;
     position: fixed;
     left: 0;
+    top: 0;
     background-color: var(--color-dark-gray);
     color: var(--color-white);
     display: flex;
@@ -829,6 +830,194 @@ form#userSearch a:hover {
     color: var(--color-dark);
 }
 
+
+
+/*-------------------------Tchat--------------------------*/
+
+#tchat_conv {
+    display: flex;
+    flex-direction: row;
+    min-height: 95vh;
+}
+
+#userInfos {
+    max-width: 60%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#userInfos h1 {
+    width: 100%;
+}
+
+#userInfos div i {
+    font-size: 50px;
+}
+
+#userInfos div {
+    width: 10vw;
+    text-align: center;
+    padding: 10px;
+    color: var(--color-dark);
+}
+
+#userInfos div:first-of-type {
+    background-color: var(--color-pink);
+}
+
+#userInfos div:nth-of-type(2) {
+    background-color: var(--color-light-green);
+    margin-left: 10px;
+}
+#userInfos div:nth-of-type(3) {
+    background-color: var(--color-light-blue);
+    margin: 0 10px;
+}
+#userInfos div:nth-of-type(4) {
+    background-color: var(--color-yellow);
+}
+
+#userInfos div h3 {
+    padding-top: 10px;
+}
+
+#userInfos div hr {
+    margin: 20px auto 5px auto;
+    width: 80%;
+    border: var(--color-white) solid 1px;
+}
+
+#userInfos table {
+    margin-top: 10px;
+}
+
+#userTchat {
+    width: 30%;
+    height: calc(100% - 100px);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+#tchatHeader {
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    margin-bottom: 1px;
+}
+
+
+#msgContainer {
+    min-height: 400px;
+    max-height: 60vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#msgContainer > div {
+    width: 100%;
+    color: var(--color-white);
+    margin: 10px 0;
+}
+
+.msg_right {
+    text-align: right;
+}
+
+.msg_right > p {
+    text-align: right;
+}
+
+.msg_left {
+    text-align: left;
+}
+
+#msgContainer > div > p {
+    display: inline-block;
+    max-width: 60%;
+    padding: 10px;
+    background-image: linear-gradient(to right bottom, #0d2969, #333a90, #5a4ab6, #8658db, #b665ff);
+    border-radius: 20px;
+    line-height: 1.5em;
+}
+
+#msgInputs {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--color-white);
+    padding: 10px;
+}
+
+#msgInputs textarea {
+    resize: none;
+    border: none;
+    width: 80%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#msgInputs i {
+    cursor: pointer;
+    font-size: 50px;
+    color: var(--color-dark-green);
+    margin: auto;
+}
+
+#msgInputs i:hover {
+    color: var(--color-light-green);
+}
+
+/*-------------------------Login--------------------------*/
+
+#login {
+    display: flex;
+}
+
+#login form {
+    width: 60%;
+    max-width: 500px;
+    height: min-content;
+    margin: auto auto;
+}
+
+#login form input {
+    width: 100%;
+    background-color: var(--color-white);
+    margin-bottom: 10px;
+}
+
+#login form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#login form div input {
+    width: initial;
+}
+
+#login form div input[type="submit"] {
+    width: 60%;
+    cursor: pointer;
+}
+
+#login form div input[type="submit"]:hover {
+    background-color: var(--color-light-green);
+}
+
+
+/*-------------------------Mon profil--------------------------*/
+
+
+myprofil form {
+
+}
 
 /*-------------------------FAQ--------------------------*/
 

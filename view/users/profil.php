@@ -1,88 +1,153 @@
-<?php $title = $user["Prenom"] . " " . $user["Nom"]; ?>
+<?php $title = $conv["Prenom"] . $conv["Nom"]; ?>
+<?php $active_page = "nav-user"; ?>
 
 <?php ob_start(); ?>
 
-<div class="page container">
-        <div class="hflex fullwidth">
-            <div id="userProfil">
-                <div id="userProfilImg">
-                    <h1><?= $user["Prenom"] ?></h1>
-                    <h1><?= $user["Nom"] ?></h1>
-                    <hr>
-                    <small><?= $user["Creation_Date"] ?></small>
-                    <hr>
-                </div>
-            </div>
 
-            <div style='color:<?= $user["is_suspended"]==1 ? "red" : "" ?>;' id="userProfilInfos">
-                <div>
-                    <img src="https://cdn4.iconfinder.com/data/icons/miu-black-social-2/60/mail-512.png" alt="mail">
-                    <p><?= $user["Mail"] ?></p>
-                </div>
-                <div>
-                    <img src="https://simpleicon.com/wp-content/uploads/phone-symbol-1.png" alt="tel">
-                    <p><?= $user["Tel"] ?></p>
-                </div>
-                <div>
-                    <img src="https://img.icons8.com/ios-glyphs/452/touch-id.png" alt="nss">
-                    <p><?= $user["NSS"] ?></p>
-                </div>
-                <div>
-                    <img src="https://i.pinimg.com/originals/f9/64/61/f964612dd42ba5ccd93367f01912c9a3.png" alt="nss">
-                    <p><?= $user["Adresse"] ?></p>
-                </div>
-            </div>
-            <?php $uid=$user["NSS"] ?>
-            <div id="userPorfilAction">
-                <button onclick="location.href='/tchat/t/<?= $uid ?>'" style="background-color: var(--color-dark);">Méssagerie</button>
-                <button style="background-color: var(--color-light-blue);">Nouveau Test</button>
-                <button style="background-color: var(--color-red);"><?= $user["is_suspended"]==1 ? "Réabiliter" : "Suspendre" ?></button>
+<section class="panel" id="tchat_conv">
+
+    <div class="content-card" id="userInfos">
+        <h1><?= $conv["Prenom"] . " " . $conv["Nom"] ?></h1>
+        <div>
+            <i class="far fa-envelope-open"></i>
+            <hr>
+            <h3><?= $conv["Mail"] ?></h3>
+        </div>
+        <div>
+            <i class="fas fa-fingerprint"></i>
+            <hr>
+            <h3><?= $conv["NSS"] ?></h3>
+        </div>
+        <div>
+            <i class="fas fa-mobile-alt"></i>
+            <hr>
+            <h3><?= $conv["Tel"] ?></h3>
+        </div>
+        <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <hr>
+            <h3><?= $user["Adresse"] ?></h3>
+        </div>
+        <table class="lib-table" id="userTable">
+            <tr>
+                <th onclick="sortTable(0)">Date</th>
+                <th onclick="sortTable(1)">Heure</th>
+                <th onclick="sortTable(2)">Status</th>
+                <th class="table_more"></th>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+            <tr>
+                <td>2020-01-12</td>
+                <td>13h41</td>
+                <td>Terminée</td>
+                <td><a href=""><i class="fas fa-angle-double-right"></i></a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content-card" id="userTchat">
+        <div id="tchatHeader">
+            <h1>Méssagerie</h1>
+        </div>
+
+        <div id="update">
+            <div id="msgContainer">
+                <?php
+                foreach ($msgs as $key => $msg) {?>
+                    <div class='<?= (($msg["is_answer"] == 1 and $_SESSION["ROLE"] == 7) or ($msg["is_answer"] == 0 and $_SESSION["ROLE"] == 6)) ? "msg_right" : "msg_left" ?>'>
+                        <p><?= $msg["content"] ?></p></div>
+                    <?php
+                } ?>
             </div>
         </div>
 
-
-            <table>
-                <tr class="darkBck table__head">
-                    <th>Date</th>
-                    <th>Heure</th>
-                    <th>Status</th>
-                    <th class="table_more"></th>
-                </tr>
-                <tr class="table__row">
-                    <th>2020-11-14</th>
-                    <th>14h04</th>
-                    <th>Passed</th>
-                    <th class="go_to_detail"><a><div>+</div></a></th>
-                </tr>
-                <tr class="table__row fail">
-                    <th>2020-11-14</th>
-                    <th>14h04</th>
-                    <th>Failed</th>
-                    <th class="go_to_detail"><a>+</a></th>
-                </tr>
-                <tr class="table__row">
-                    <th>2020-11-14</th>
-                    <th>14h04</th>
-                    <th>Passed</th>
-                    <th class="go_to_detail"><a>+</a></th>
-                </tr>
-                <tr class="table__row">
-                    <th>2020-11-14</th>
-                    <th>14h04</th>
-                    <th>Passed</th>
-                    <th class="go_to_detail"><a>+</a></th>
-                </tr>
-                <tr class="darkBck table__foot">
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </table>
-
-
+        <div id="msgInputs">
+            <textarea id="msgContent" rows="2" placeholder="Message" required></textarea>
+            <i id="sendMsg" class="fas fa-arrow-alt-circle-right"></i>
+        </div>
     </div>
+
+
+</section>
+
+<script src="<?php DIR?>/public/js/msgScroller.js"></script>
+
+<script>
+
+    $("#sendMsg").click(function () {
+        msg = $("#msgContent").val();
+        $.post("", {msg_content: msg}, function () {
+            $("#msgContent").val("");
+            $('#update').load(location.href + " #msgContainer", function() {
+                register_scroller();
+            });
+        });
+    })
+
+</script>
 
 <?php $content = ob_get_clean(); ?>
 
 <?php require(DIR . '/view/template.view.php'); ?>
+
+
+

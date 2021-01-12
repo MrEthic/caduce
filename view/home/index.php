@@ -1,5 +1,7 @@
 <?php $title = "Caducée"; ?>
 
+<?php require_once(DIR . "/view/langs/lang.fr.php"); ?>
+
 <?php
 ob_start();
 ?>
@@ -10,18 +12,15 @@ ob_start();
 
     <div class="ctn">
         <div class="left">
-            <h1>Caducée </h1>
-            <h2>Le premier maillon de la chaîne de sauvetage</h2>
-            <p>L'ambulancier est le premier maillon de la chaine de sauvetage, il doit en quelques secondes prendre des
-                décisions importante pour la survie des bléssé. Rapide, clairevoyant et sûr de lui, il doit toujours
-                être au meilleur de sa forme. Caducée est une solution fiable et à moindre coût permetant de s'assurer
-                des capacité de votre personnel</p>
+            <h1><?= $lg["home"]["sec-1"]["title"] ?></h1>
+            <h2><?= $lg["home"]["sec-1"]["title2"] ?></h2>
+            <p><?= $lg["home"]["sec-1"]["content"] ?></p>
             <div class="btn-line">
                 <a href="#home-2">
-                    <button class="lib-btn lib-blue-btn">En savoir plus</button>
+                    <button class="lib-btn lib-blue-btn"><?= $lg["home"]["sec-1"]["btn-more"] ?></button>
                 </a>
                 <a href="#home-3">
-                    <button class="lib-btn lib-green-btn">Nous contacter</button>
+                    <button class="lib-btn lib-green-btn"><?= $lg["home"]["sec-1"]["btn-contact"] ?></button>
                 </a>
             </div>
         </div>
@@ -41,7 +40,7 @@ ob_start();
 
     <div>
 
-    <h1 class="title">Une solution complète</h1>
+    <h1 class="title"><?= $lg["home"]["sec-2"]["title"] ?></h1>
 
 
         <div class="ctn">
@@ -50,16 +49,16 @@ ob_start();
                 <div class="feature">
 
                     <div>
-                        <h1>Platformes <br> de test</h1>
+                        <h1><?= $lg["home"]["sec-2"]["card-1"]["title-a"] ?><br><?= $lg["home"]["sec-2"]["card-1"]["title-b"] ?></h1>
                     </div>
 
                     <div>
-                        <p>Des plateformes de tests pour mesurer :</p>
+                        <p><?= $lg["home"]["sec-2"]["card-1"]["desc"] ?></p>
                         <ul>
-                            <li>Les reflexes</li>
-                            <li>La resistance au stress sonore</li>
-                            <li>La mémoire instantané</li>
-                            <li>La rapiditées d'éxécution</li>
+                            <li><?= $lg["home"]["sec-2"]["card-1"]["li-1"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-1"]["li-2"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-1"]["li-3"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-1"]["li-4"] ?></li>
                         </ul>
                     </div>
 
@@ -68,16 +67,16 @@ ob_start();
                 <div class="feature">
 
                     <div>
-                        <h1>Portail <br> Web</h1>
+                        <h1><?= $lg["home"]["sec-2"]["card-2"]["title-a"] ?><br><?= $lg["home"]["sec-2"]["card-1"]["title-b"] ?></h1>
                     </div>
 
                     <div>
-                        <p>Un portail web sécurisé permettant :</p>
+                        <p><?= $lg["home"]["sec-2"]["card-2"]["desc"] ?></p>
                         <ul>
-                            <li>Consulter ses résultats</li>
-                            <li>Lancer de nouveaux test</li>
-                            <li>Suivre son évolution</li>
-                            <li>Se comparer aux autres</li>
+                            <li><?= $lg["home"]["sec-2"]["card-2"]["li-1"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-2"]["li-2"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-2"]["li-3"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-2"]["li-4"] ?></li>
                         </ul>
                     </div>
 
@@ -86,16 +85,16 @@ ob_start();
                 <div class="feature">
 
                     <div>
-                        <h1>Administration <br> facille</h1>
+                        <h1><?= $lg["home"]["sec-2"]["card-3"]["title-a"] ?><br><?= $lg["home"]["sec-2"]["card-1"]["title-b"] ?></h1>
                     </div>
 
                     <div>
-                        <p>Gérer facilement vos ambulancier :</p>
+                        <p><?= $lg["home"]["sec-2"]["card-3"]["desc"] ?></p>
                         <ul>
-                            <li>Analyse des performances</li>
-                            <li>Méssagerie interne</li>
-                            <li>Ajout de membres simple</li>
-                            <li>Suspension de compte</li>
+                            <li><?= $lg["home"]["sec-2"]["card-3"]["li-1"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-3"]["li-2"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-3"]["li-3"] ?></li>
+                            <li><?= $lg["home"]["sec-2"]["card-3"]["li-4"] ?></li>
                         </ul>
                     </div>
 
@@ -110,17 +109,17 @@ ob_start();
 <section id="home-3">
 
     <form>
-        <h1>Contactez nous</h1>
-        <h2>Pour plus d'information à propos de Caducée ou toute autres demande</h2>
-        <label for="name">Votre nom et prénom :</label>
-        <label for="mail">Votre adresse mail :</label>
-        <input required id="name" type="text" value="John Smith" placeholder="Nom et prénom">
-        <input required id="mail" type="mail" placeholder="mail">
-        <label for="objet">Objet du message :</label>
-        <input required id="objet" type="text" value="Votre produit nous intérèsse" placeholder="Objet">
-        <label for="msg">Votre message :</label>
-        <textarea required id="msg" rows="5" placeholder="Message"></textarea>
-        <input id="submitContact" type="submit" value="Envoyer">
+        <h1><?= $lg["home"]["sec-3"]["title"] ?></h1>
+        <h2><?= $lg["home"]["sec-3"]["title-2"] ?></h2>
+        <label for="name"><?= $lg["home"]["sec-3"]["name"] ?></label>
+        <label for="mail"><?= $lg["home"]["sec-3"]["mail"] ?></label>
+        <input required id="name" type="text" value="John Smith" >
+        <input required id="mail" type="mail" >
+        <label for="objet"><?= $lg["home"]["sec-3"]["object"] ?></label>
+        <input required id="objet" type="text" >
+        <label for="msg"><?= $lg["home"]["sec-3"]["msg"] ?></label>
+        <textarea required id="msg" rows="5" ></textarea>
+        <input id="submitContact" type="submit" value='<?= $lg["home"]["sec-3"]["submit"] ?>'>
     </form>
 
 </section>

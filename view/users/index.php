@@ -1,3 +1,6 @@
+<?php require_once(DIR . "/view/langs/lang.fr.php"); ?>
+
+
 <?php
 $title = "Ambulanciers";
 $active_page = "nav-user";
@@ -42,7 +45,7 @@ $active_page = "nav-user";
     <div id="userNav" class="content-card">
 
         <button onclick="$('#userCreate').addClass('active');" class="lib-btn lib-green-btn">Ajouter un utilisateurs</button>
-        <button onclick="window.location.href='/profil'" class="lib-btn lib-pink-btn">Paramêtre des utilisateurs </button>
+        <button onclick="window.location.href='/profil'" class="lib-btn lib-pink-btn">Paramêtre des utilisateurs</button>
         <button onclick="window.location.href='/tchat';" class="lib-btn lib-blue-btn">Méssagerie</button>
 
     </div>

@@ -1,3 +1,5 @@
+<?php require_once(DIR . "/view/langs/lang.fr.php"); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -21,9 +23,9 @@
 <body>
 
 <div id="homeNav">
-    <a href="/"><button id="homeHome">Acceuil</button></a>
-    <a href="/login"><button id="loginHome">Connexion</button></a>
-    <a href="/faq"><button id="faqHome">FAQ</button></a>
+    <a href="/"><button id="homeHome"><?= $lg["nav"]["home"] ?></button></a>
+    <a href="/login"><button id="loginHome"><?= $lg["nav"]["login"] ?></button></a>
+    <a href="/faq"><button id="faqHome"><?= $lg["nav"]["faq"] ?></button></a>
 </div>
 
     <?= $content ?>
