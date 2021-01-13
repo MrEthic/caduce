@@ -1,0 +1,1214 @@
+#goToTop {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    transition: transform 0.5s ease;
+}
+
+#goToTop:hover {
+    transform: rotate(360deg);
+}
+
+#homeNav {
+    width: 470px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#faqHome,
+#loginHome,
+#homeHome {
+    width: 150px;
+    padding: 10px;
+    background-color: white;
+    border: var(--color-white) solid 1px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 1s ease, box-shadow 1s ease;
+}
+#faqHome:hover,
+#loginHome:hover,
+#homeHome:hover {
+    box-shadow: 5px 5px 5px var(--color-gray);
+    transform: translate(-5px, -5px);
+}
+
+section {
+    height: 100vh;
+    background-color: var(--color-white);
+}
+
+section:nth-of-type(even) {
+    background-color: white;
+}
+
+section.panel {
+    overflow-y: auto;
+    padding: 20px 20px;
+    width: calc(100% - 90px);
+    margin-left: 50px;
+    height: initial;
+    min-height: 100vh;
+}
+
+section.panel.side-expand {
+    width: calc(100% - 240px);
+    margin-left: 200px;
+}
+
+.content-card {
+    background-color: white;
+    box-shadow: 0 0 30px var(--color-gray);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 4px;
+}
+
+.ctn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+section .ctn {
+    padding: 0 100px;
+}
+
+h1 {
+    font-size: 50px;
+    text-decoration: underline solid #00BFFF 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.popup {
+    border-radius: 15px;
+    padding: 20px 10px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    animation-name: popup-fall;
+    animation-duration: 1.5s;
+    cursor: pointer;
+}
+
+.popup.red {
+    background-color: var(--color-red);
+}
+
+.popup.green {
+    background-color: var(--color-light-green);
+}
+
+.popup:hover {
+    opacity: 0.5;
+}
+
+@keyframes popup-fall {
+    from {transform: translateY(calc(-100% - 20px));}
+    to {transform: translateY(0);}
+}
+
+
+/*-------------------------NavBar v2--------------------------*/
+
+
+#sideBar {
+    height: 100vh;
+    width: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+#sideBar div {
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.5s ease;
+}
+
+#sideBar div:nth-child(1) {
+    height: 30px;
+    border-bottom: solid var(--color-dark-blue) 2px;
+    background-color: var(--color-red);
+    cursor: pointer;
+}
+
+#sideBar div:last-of-type {
+    margin-top: auto;
+}
+
+#sideBar div:nth-of-type(n + 2) :hover {
+    color: var(--color-dark-green);
+}
+
+#sideBar div a {
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#sideBar div a * {
+    display: inline-block;
+}
+
+#sideBar div a img {
+    width: 30px;
+}
+
+#sideBar div a i {
+    width: 30px;
+    text-align: center;
+}
+
+#sideBar div a h1,
+#sideBar div a h2
+{
+    display: none;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#sideBar div a h2 {
+    font-size: 18px;
+}
+
+#sideBar div a h1 {
+    font-size: 20px;
+}
+
+
+#sideBar.side-expand div {
+    width: 190px;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+#sideBar.side-expand div:nth-child(1) {
+    height: 30px;
+}
+
+#sideBar.side-expand div a {
+    justify-content: space-between;
+}
+
+#sideBar.side-expand {
+    width: 200px;
+}
+#sideBar.side-expand div a h2,
+#sideBar.side-expand div a h1 {
+    display: initial;
+}
+
+
+/*-------------------------Table sorting-------------------------*/
+
+
+.sort__asc::after {
+    position: absolute;
+    content: "‣";
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: 40px;
+    display: inline-block;
+    transform: rotate(90deg) translateX(-75%);
+}
+
+.sort__desc::after {
+    position: absolute;
+    content: "‣";
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: 40px;
+    display: inline-block;
+    transform: rotate(-90deg) translateX(23%);
+}
+
+
+
+/*-------------------------Landing page--------------------------*/
+
+
+#home-1 .ctn .left {
+    width: 60%;
+    padding-right: 50px;
+}
+
+#home-1 .ctn .left h2 {
+    padding: 50px 0;
+    font-size: 25px;
+}
+#home-1 .ctn .left p {
+    font-size: 16px;
+    padding-left: 10px;
+    padding-bottom: 25px;
+}
+
+#home-1 .ctn .left .btn-line {
+    display: flex;
+}
+
+.lib-btn {
+    font-size: 20px;
+    padding: 7px 12px;
+    border: none;
+    /*    border-radius: 10px;*/
+    cursor: pointer;
+}
+
+.lib-blue-btn {
+    margin-right: 20px;
+    background-color: var(--color-light-blue);
+    box-shadow: 5px 5px 5px var(--color-dark-blue);
+}
+
+.lib-green-btn {
+    background-color: var(--color-light-green);
+    box-shadow: 5px 5px 5px var(--color-dark-green);
+}
+
+.lib-pink-btn {
+    background-color: var(--color-pink);
+    box-shadow: 5px 5px 5px #ea9b79;
+}
+
+.lib-red-btn {
+    background-color: var(--color-red);
+    box-shadow: 5px 5px 5px var(--color-dark-green);
+}
+
+.lib-btn:hover {
+    opacity: 0.8;
+}
+
+.lib-btn:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+#home-1 .ctn .right {
+    width: 40%;
+    padding-left: 50px;
+}
+
+#home-1 .ctn .right img {
+    width: 100%;
+}
+
+#home-2 div .title {
+    text-align: center;
+    padding: 65px 0;
+    font-size: 50px;
+    text-decoration: underline solid #00BFFF 4px;
+}
+
+#home-2 .ctn .features {
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+}
+
+#home-2 .ctn .features .feature {
+    width: 250px;
+    height: auto;
+    margin: 0 25px;
+    background-color: var(--color-white);
+    transition: transform 1s ease, box-shadow 1s ease;
+
+}
+
+#home-2 .ctn .features .feature:hover {
+    box-shadow: 20px 20px 20px var(--color-gray);
+    transform: translate(-20px, -20px);
+}
+
+#home-2 .ctn .features .feature div {
+    padding: 0 10px;
+}
+
+
+#home-2 .ctn .features .feature div:nth-child(1) {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 60px 20px;
+}
+
+#home-2 .ctn .features .feature div:nth-child(1) h1 {
+    text-decoration: none;
+    font-size: 24px;
+}
+
+#home-2 .ctn .features .feature div:nth-child(2) {
+    padding: 20px 20px;
+    text-align: center;
+    line-height: 2em;
+}
+
+#home-2 .ctn .features .feature div:nth-child(2) ul {
+    color: #303030;
+    padding-top: 10px;
+}
+
+#home-2 .ctn .features .feature:nth-child(1) div:nth-child(1) {
+    background-color: var(--color-yellow);
+}
+
+#home-2 .ctn .features .feature:nth-child(2) div:nth-child(1) {
+    background-color: var(--color-blue);
+}
+
+#home-2 .ctn .features .feature:nth-child(3) div:nth-child(1) {
+    background-color: var(--color-pink);
+}
+
+#home-3 {
+    display: block;
+    align-content: center;
+    margin-top: 100px;
+    height: auto;
+}
+
+#home-3 form {
+    width: 40%;
+    height: auto;
+    margin: auto;
+    background-color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#home-3 form h1 {
+    width: 100%;
+    font-size: 50px;
+    text-decoration: underline solid #00BFFF 4px;
+}
+
+#home-3 form h2 {
+    width: 100%;
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+#home-3 form label {
+    width: 290px;
+    margin-top: 15px;
+}
+
+#home-3 form input[type="text"],
+#home-3 form input[type="mail"]{
+    background-color: var(--color-white);
+    font-size: 20px;
+    padding: 10px 7px;
+    height: 20px;
+    border: none;
+}
+
+#home-3 form #name,
+#home-3 form #mail{
+    width: 280px;
+}
+
+#home-3 form #objet {
+    width: 100%;
+}
+
+#home-3 form #msg {
+    resize: none;
+    width: 100%;
+    background-color: var(--color-white);
+    font-size: 20px;
+    padding: 10px 7px;
+    border: none;
+    margin-bottom: 39px;
+}
+
+#home-3 form #submitContact {
+    width: 280px;
+    background-color: var(--color-light-green);
+    font-size: 20px;
+    border: none;
+    height: initial;
+    padding: 5px;
+}
+
+#footer {
+    height: 25vh;
+    width: 100%;
+    background-color: var(--color-dark);
+    display: flex;
+    align-items: center;
+}
+
+#footerContainer {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footerNav {
+    margin: 10px 0;
+}
+
+.footerNav a {
+    color: var(--color-white);
+    margin: 0 5px;
+}
+
+/*-------------------------Users--------------------------*/
+
+#users {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+#users h1 {
+    width: 100%;
+}
+
+#userStat {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#userStat div {
+    background-color: var(--color-white);
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+    flex-grow: 1;
+    width: 40%;
+    text-align: center;
+    transition: transform 1s ease, box-shadox 1s ease;
+}
+
+#userStat div:hover {
+    box-shadow: 10px 10px 10px var(--color-gray);
+    transform: translate(-7px, -7px);
+}
+
+#userStat div:first-child {
+    color: var(--color-dark-green);
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#userStat div:nth-child(2) {
+    color: var(--color-dark-gray);
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+#userStat div:last-child {
+    color: var(--color-red);
+    margin-left: 5px;
+    margin-top: 5px;
+}
+#userStat div:nth-child(3) {
+    color: var(--color-dark-blue);
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+#userStat div h2 {
+    text-transform: uppercase;
+}
+#userStat div hr {
+    border: var(--color-dark) solid 1px;
+    margin: 10px 0;
+}
+#userStat div p {
+    font-size: 20px;
+}
+
+#userNav {
+    width: 30%;
+    height: min-content;
+}
+
+#userNav button {
+
+}
+
+#userNav button:nth-child(2) {
+    margin: 10px 0;
+}
+
+#userCreate {
+    display: none;
+    width: min-content;
+    padding-top: 0;
+}
+
+#userCreate.active {
+    display: initial;
+}
+
+#userCreate i {
+    color: var(--color-dark-gray);
+    font-size: 14px;
+    position: relative;
+    left: 100%;
+    cursor: pointer;
+}
+
+#userCreate i:hover {
+    color: var(--color-red);
+}
+
+form#createForm h3 {
+    text-decoration: underline solid #00BFFF 2px;
+    margin-bottom: 10px;
+}
+
+form#createForm div#createContent {
+    display: flex;
+}
+
+form#createForm div#createContent div {
+    background-color: var(--color-white);
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+form#createForm div#createContent div:nth-child(2) {
+    margin: 0 10px;
+}
+
+form#createForm div#createContent div input {
+    height: 25px;
+    margin: 5px 0;
+}
+
+form#createForm div#createContent div input:invalid:required {
+    border: var(--color-red) solid 1px;
+}
+
+form#createForm #createSubmit {
+    width: 100%;
+    border: none;
+    background-color: var(--color-dark-green);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form#createForm #createSubmit:hover {
+    background-color: var(--color-light-green);
+    box-shadow: inset 0 0 20px var(--color-dark-green);
+}
+
+
+#userSearchModal {
+    display: none;
+    width: min-content;
+    padding-top: 0;
+}
+
+#userSearchModal.active {
+    display: block;
+}
+
+#userSearchModal i {
+    color: var(--color-dark-gray);
+    font-size: 14px;
+    position: relative;
+    left: 100%;
+    cursor: pointer;
+}
+
+#userSearchModal i:hover {
+    color: var(--color-red);
+}
+
+#userSearchModal form#advancedSearch {
+    display: flex;
+}
+
+#userSearchModal form#advancedSearch div {
+    background-color: var(--color-white);
+    padding: 10px;
+    text-align: center;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#userSearchModal form#advancedSearch div#userSearchFields div {
+    display: flex;
+    flex-direction: column;
+}
+
+#userSearchModal form#advancedSearch div h3 {
+    text-decoration: underline solid #00BFFF 2px;
+}
+
+form#advancedSearch input[type="date"],
+form#advancedSearch input[type="text"],
+form#advancedSearch input[type="mail"]
+{
+    height: 25px;
+}
+
+form#advancedSearch input[type="text"],
+form#advancedSearch input[type="mail"] {
+    margin: 5px 0;
+}
+
+form#advancedSearch button {
+    border: none;
+    background-color: var(--color-dark-green);
+    cursor: pointer;
+    margin-left: 5px;
+}
+form#advancedSearch button span {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+form#advancedSearch button:hover {
+    background-color: var(--color-light-green);
+    box-shadow: inset 0 0 20px var(--color-dark-green);
+}
+
+
+
+#userList {
+    width: 100%;
+}
+
+form#userSearch {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+form#userSearch input {
+    border: none;
+    height: 25px;
+}
+
+form#userSearch input:nth-child(1) {
+    background-color: var(--color-white);
+    flex-grow: 5;
+}
+
+form#userSearch input:nth-child(2) {
+    background-color: var(--color-dark-green);
+    flex-grow: 4;
+    cursor: pointer;
+}
+
+form#userSearch input:nth-child(2):hover {
+    background-color: var(--color-light-green);
+    box-shadow: inset 0 0 20px var(--color-dark-green);
+}
+
+form#userSearch a {
+    font-size: 16px;
+    color: var(--color-dark);
+    padding: 0 5px;
+    transition: transform 1s ease;
+    cursor: pointer;
+}
+
+#usersLoading {
+    display: none;
+    backdrop-filter: blur(2px);
+    position: fixed;
+    font-size: 100px;
+    color: var(--color-dark);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 20%;
+}
+
+#usersLoading.active {
+    display: initial;
+}
+
+#loader {
+    margin-left: 50%;
+    border-top: 16px solid var(--color-blue);
+    border-right: 16px solid var(--color-dark-green);
+    border-bottom: 16px solid var(--color-red);
+    border-left: 16px solid var(--color-pink);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+form#userSearch a:hover {
+    transform: rotate(360deg);
+}
+
+.lib-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+.lib-table tr {
+    border-bottom: var(--color-gray) solid 1px;
+    text-align: left;
+    height: 50px;
+}
+
+.lib-table tr:first-child {
+    border-color: var(--color-dark);
+    background-color: var(--color-dark-gray);
+    color: white;
+}
+
+.lib-table tr:last-of-type {
+    border-bottom: var(--color-dark-gray) solid 5px;
+}
+
+.lib-table tr:nth-of-type(n + 2) {
+    color: var(--color-dark-gray);
+    font-size: 14px;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.lib-table tr:nth-of-type(n + 2):hover {
+    background-color: var(--color-dark-green);
+}
+
+.lib-table tr th ,
+.lib-table tr td {
+    padding: 0 10px;
+}
+
+.lib-table tr th:first-child {
+    /*border-radius: 6px 0 0 0;*/
+}
+
+.lib-table tr td:last-of-type a {
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: auto;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+
+
+/*-------------------------Tchat--------------------------*/
+
+#tchat_conv {
+    display: flex;
+    flex-direction: row;
+    min-height: 95vh;
+}
+
+#userInfos {
+    max-width: 60%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#userInfos h1 {
+    width: 100%;
+}
+
+#userInfos div i {
+    font-size: 50px;
+}
+
+#userInfos div {
+    width: 10vw;
+    text-align: center;
+    padding: 10px;
+    color: var(--color-dark);
+}
+
+#userInfos div:first-of-type {
+    background-color: var(--color-pink);
+}
+
+#userInfos div:nth-of-type(2) {
+    background-color: var(--color-light-green);
+    margin-left: 10px;
+}
+#userInfos div:nth-of-type(3) {
+    background-color: var(--color-light-blue);
+    margin: 0 10px;
+}
+#userInfos div:nth-of-type(4) {
+    background-color: var(--color-yellow);
+}
+
+#userInfos div h3 {
+    padding-top: 10px;
+}
+
+#userInfos div hr {
+    margin: 20px auto 5px auto;
+    width: 80%;
+    border: var(--color-white) solid 1px;
+}
+
+#userInfos table {
+    margin-top: 10px;
+}
+
+#userTchat {
+    width: 30%;
+    height: calc(100% - 100px);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+#tchatHeader {
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    margin-bottom: 1px;
+}
+
+
+#msgContainer {
+    min-height: 400px;
+    max-height: 60vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#msgContainer > div {
+    width: 100%;
+    color: var(--color-white);
+    margin: 10px 0;
+}
+
+.msg_right {
+    text-align: right;
+}
+
+.msg_right > p {
+    text-align: right;
+}
+
+.msg_left {
+    text-align: left;
+}
+
+#msgContainer > div > p {
+    display: inline-block;
+    max-width: 60%;
+    padding: 10px;
+    background-image: linear-gradient(to right bottom, #0d2969, #333a90, #5a4ab6, #8658db, #b665ff);
+    border-radius: 20px;
+    line-height: 1.5em;
+}
+
+#msgInputs {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--color-white);
+    padding: 10px;
+}
+
+#msgInputs textarea {
+    resize: none;
+    border: none;
+    width: 80%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#msgInputs i {
+    cursor: pointer;
+    font-size: 50px;
+    color: var(--color-dark-green);
+    margin: auto;
+}
+
+#msgInputs i:hover {
+    color: var(--color-light-green);
+}
+
+/*-------------------------Login--------------------------*/
+
+#login {
+    display: flex;
+}
+
+#login form {
+    width: 60%;
+    max-width: 500px;
+    height: min-content;
+    margin: auto auto;
+}
+
+#login form input {
+    width: 100%;
+    background-color: var(--color-white);
+    margin-bottom: 10px;
+}
+
+#login form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#login form div input {
+    width: initial;
+}
+
+#login form div input[type="submit"] {
+    width: 60%;
+    cursor: pointer;
+}
+
+#login form div input[type="submit"]:hover {
+    background-color: var(--color-light-green);
+}
+
+
+/*-------------------------Mon profil--------------------------*/
+
+
+myprofil form {
+
+}
+
+/*-------------------------FAQ--------------------------*/
+
+#faq .faq-somaire {
+    margin: 0 auto;
+}
+
+#faq a {
+    color: black;
+}
+
+#faq .ctn .left {
+    width: 70%;
+    padding-right: 50px;
+}
+
+#faq .ctn .left h2 {
+    padding: 50px 0;
+    font-size: 30px;
+}
+
+#faq .ctn .left ul {
+    font-size: 20px;
+}
+
+#faq .ctn .left a:hover {
+    text-decoration: underline solid var(--color-dark-blue) 2px;
+}
+
+#faq .ctn .right {
+    width: 30%;
+    padding-left: 50px;
+}
+
+#faq .ctn .right img {
+    width: 100%;
+}
+
+.accordion {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.accordion h4{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: var(--color-dark);
+    font-size: 20px;
+    border-bottom: 1px solid var(--color-gray);
+    text-decoration: none;
+}
+
+.accordion h4.active{
+    color: var(--color-dark-green);
+    border: none;
+}
+
+.accordion h4:hover, .accordion a:hover::after{
+    cursor: pointer;
+    color:  var(--color-dark-green);
+}
+
+.accordion h4::after{
+
+    font-family:"Font Awesome 5 Free";
+    content:'\f358';
+    position:absolute;
+    float:right;
+    right:1rem;
+    font-size:1.5rem;
+    color:black;
+}
+
+.accordion h4.active::after{
+    font-family:"Font Awesome 5 Free";
+    content:'\f35b';
+    color: #03B5D2;
+}
+
+.accordion .content p{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.accordion .content{
+    opacity: 0;max-height: 0; /* Permet de cacher le contenu une fois cliqué à nouveau */
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--color-gray);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion .content.active{
+    opacity: 1;
+    max-height: 100%;
+    padding: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 800px) {
+    #homeNav {
+        margin: 0 auto;
+        width: 100%;
+        justify-content: space-evenly;
+        right: 0;
+    }
+
+    #homeNav > a {
+        width: 30%;
+    }
+
+    #homeNav > a > * {
+        width: 100%;
+    }
+
+    section {
+        height: 100vh;
+    }
+
+    section .ctn {
+        padding: 0 20px;
+    }
+
+    #home-1 .ctn .right {
+        display: none;
+    }
+
+    #home-1 .ctn .left {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    #home-1 .ctn .left h1 {
+        font-size: 50px;
+    }
+
+
+    #home-1 .ctn .left .btn-line {
+        justify-content: center;
+    }
+
+    #home-2 {
+        height: initial;
+    }
+
+    #home-2 .ctn .features {
+        display: initial;
+    }
+
+    #home-2 .ctn .features .feature {
+        width: initial;
+        height: initial;
+        margin: 20px auto;
+    }
+
+    #home-3 form {
+        width: 80%;
+    }
+
+    #footer {
+        height: auto;
+    }
+
+    #faq .ctn .right {
+        display: none;
+    }
+
+    #faq .ctn .left {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    #faq .ctn .left h1 {
+        font-size: 50px;
+    }
+
+    #faq .ctn .left h2, #faq .ctn .left ul {
+        display: none;
+    }
+
+    .accordion {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
