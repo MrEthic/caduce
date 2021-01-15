@@ -1,0 +1,514 @@
+
+.darkBck {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.whitBck {
+    background-color: var(--color-white);
+}
+
+.redBck {
+    background-color: var(--color-red);
+}
+
+body {
+    background-color: white;
+    height: 100%;
+}
+
+hr {
+    margin: 2px 0;
+}
+
+.page {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.halfwidth {
+    width: 50%;
+}
+
+.vcenter {
+    transform: translateY(50%);
+}
+
+.hflex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vflex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+}
+
+.flex-even {
+    justify-content: space-evenly;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+
+
+.round-border {
+    border: none;
+    border-radius: 20px;
+}
+
+.title {
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.table__head {
+    text-transform: uppercase;
+    height: 50px;
+}
+
+.table__foot {
+    height: 5px;
+}
+
+.table__row {
+    height: 50px;
+    font-size: small;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.table__row:nth-of-type(odd) {
+    background-color: var(--color-gray);
+}
+
+.table__row:hover {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.go_to_detail {
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: auto;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.inline_input {
+    padding: 2px 0;
+}
+
+.inline_input:hover {
+    cursor: pointer;
+}
+
+.inline_input > * {
+    width: 100%;
+    height: 46px;
+    border: none;
+    cursor: pointer;
+    background-color: green;
+    color: var(--color-white);
+}
+
+.inline_input > *:hover {
+    opacity: 0.8;
+}
+
+input[type="text"],
+input[type="reset"],
+input[type="email"],
+input[type="password"],
+input[type="submit"]
+{
+    height: 20px;
+    border: none;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding-left: 0.5em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.NSS {
+    letter-spacing: 1em;
+    border: 0;
+    width: 21em;
+    height: 20px;
+}
+
+
+/*-------------------------Login-------------------------*/
+
+#loginForm > * {
+    margin: 5px 0;
+}
+
+#loginForm > a {
+    margin-bottom: 0;
+}
+
+#loginSubmit {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+#loginSubmit:hover {
+    background-color: var(--color-red);
+}
+
+.rembMe {
+    width: 50px;
+    height: 10px;
+    background: var(--color-dark);
+    position: relative;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.rembMe label {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    cursor: pointer;
+    background: var(--color-white);
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.8);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.rembMe input[type=checkbox] {
+    visibility: hidden;
+}
+.rembMe input[type=checkbox]:checked + label {
+    background: var(--color-red);
+    left: 37px;
+}
+
+
+/*-------------------------User profil-------------------------*/
+
+#userProfil {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/profile1.jpg);
+    background-size: cover;
+}
+
+#userProfilImg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+#userProfilImg > hr {
+    border-color: var(--color-white);
+    width: 80%;
+    margin: 3px auto;
+}
+
+#userProfilInfos {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#userProfilInfos > div {
+    display: flex;
+    margin-left: 20px;
+}
+
+#userProfilInfos > div > p {
+    margin: 10px;
+    padding: 0;
+    font-size: large;
+}
+
+#userProfilInfos > div > img {
+    width: 0.9em;
+    height: 0.9em;
+    margin: auto 5px auto 0;
+}
+
+#userPorfilAction {
+    width: 20%;
+    height: 100%;
+}
+
+#userPorfilAction > button {
+    border: none;
+    display: block;
+    width: 100%;
+    height: 33.3%;
+    color: var(--color-white);
+}
+
+#userPorfilAction > button:hover {
+    opacity: 0.8;
+}
+
+/*-------------------------Create User-------------------------*/
+
+#createSubmit {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+#createSubmit:hover {
+    background-color: var(--color-red);
+}
+
+/*-------------------------/users search bar-------------------------*/
+
+#searchBar {
+    flex-grow: 2;
+    -webkit-transition: flex-grow 0.4s ease-in-out;
+    transition: flex-grow 0.4s ease-in-out;
+}
+
+#searchBar:hover {
+    flex-grow: 7;
+}
+
+#searchSubmit {
+    flex-grow: 4;
+}
+
+#searchReset {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#searchReset:hover {
+    filter: invert(70%) sepia(62%) saturate(7332%) hue-rotate(326deg) brightness(92%) contrast(88%);
+}
+
+/*-------------------------Table search-------------------------*/
+
+#newUser {
+    pointer-events: auto;
+}
+
+#newUser:hover {
+    background-color: var(--color-white);
+}
+
+
+/*-------------------------Advanced search-------------------------*/
+
+#advancedSearch > *:not(hr) {
+    padding: 10px 0;
+}
+
+#advancedFields {
+}
+
+#advancedFields > input {
+    width: 49%;
+}
+
+#advancedFields > input:nth-of-type(n + 3) {
+    margin-top: 10px;
+}
+
+#advancedSearch > button[type="submit"] {
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
+#advancedSearch > button[type="submit"]:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+
+/*-------------------------Table sorting-------------------------*/
+
+
+.sort__asc::after {
+    position: absolute;
+    content: "‣";
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: 40px;
+    display: inline-block;
+    transform: rotate(90deg) translateX(-75%);
+}
+
+.sort__desc::after {
+    position: absolute;
+    content: "‣";
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: 40px;
+    display: inline-block;
+    transform: rotate(-90deg) translateX(23%);
+}
+
+/*-------------------------Pop up-------------------------Table*/
+
+.popup-container {
+    display: none;
+    visibility:hidden;
+}
+
+.popup-content {
+    display: none;
+    visibility:hidden;
+}
+
+.popup-container.active{
+    display: inherit;
+    visibility:visible;
+}
+
+.popup-content.active {
+    display: inherit;
+    visibility:visible;
+}
+
+.popup-container.alert {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.alert > .popup-content {
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto;
+    transform: translateY(50%);
+    background-color: var(--color-red);
+    overflow: auto;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 10px 20px 20px;
+}
+
+.popup-close-container {
+    text-align: right;
+}
+
+
+.popup-close:hover {
+    cursor: pointer;
+}
+
+/*-------------------------Gestion profil-------------------------Table*/
+
+.pro-form {
+    margin: 0 auto;
+    width: 80%;
+    background-color: var(--color-dark);
+}
+
+.pro{
+    color: var(--color-white);
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.pro h1{
+    font-size: 40px;
+    /* trait magenta solid en bas de connexion */
+    border-bottom: 6px solid #ff3399;
+    margin-bottom: 40px;
+    padding: 13px 0;
+}
+
+.champ{
+    /* cacher les informations lorsqu'il y a dépassement du contenu */
+    overflow: hidden;
+    font-size:20px;
+    padding: 8px 0;
+    margin: 9px 0;
+    /* faire un léger trait en magenta (couleur hexa) en bas de chaque champs */
+    border-bottom: 1px solid #ff3399;
+
+}
+
+.champ i{
+    width: 25px;
+    text-align: center;
+}
+
+/* désactiver les encadrements et les  */
+.champ input{
+    /* pas de contour par défaut lorsqu'on met un input type */
+    border:none;
+    /* enlever les petits cadres lorsqu'on clique sur identifiant, mot de passe */
+    outline: none;
+    /* enlever le cadre blanc des input text en mettant none */
+    background: none;
+    /* texte couleur blanc */
+    color: var(--color-white);
+    /* taille police */
+    font-size: 15px;
+    /* margin pour décaler de 10px vers le bas */
+    margin: 10px;
+}
+
+.button2 {
+    width: 50%;
+    background: #00e64d;
+    border: none;
+    color: var(--color-dark);
+    padding: 5px;
+    font-size: 16px;
+    /* changer la flèche du souris en gant */
+    cursor : pointer;
+    margin: 12px 0;
+}
+
+.button2:hover {
+    background-color: var(--color-red);
+}

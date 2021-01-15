@@ -107,7 +107,7 @@ ob_start();
 </section>
 
 <section id="home-3">
-    &nbsp;
+
     <form>
         <h1><?= $lg["home"]["sec-3"]["title"] ?></h1>
         <h2><?= $lg["home"]["sec-3"]["title-2"] ?></h2>
@@ -121,7 +121,7 @@ ob_start();
         <textarea required id="msg" rows="5" ></textarea>
         <input id="submitContact" type="submit" value='<?= $lg["home"]["sec-3"]["submit"] ?>'>
     </form>
-    &nbsp;
+
 </section>
 
 

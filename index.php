@@ -1,23 +1,36 @@
 <?php
 
+namespace caducee;
+
+use caducee\Controller\Home;
+use caducee\Exception\AccessException as AccessException;
+use Exception;
+use PDOException;
+
 define("DIR", getcwd());
 
 
 require_once(DIR . "/config/config.php");
+require_once(DIR . "/exceptions/AccessException.php");
 
 // Check si le user et ou non connecté et quel type de compte il
 // utilise puis require le controller conrrespondant
 
 
+session_start();
 $params = explode('/', $_GET['p']);
-
 try {
     if ($params[0] != "") {
 
         $controller = ucfirst($params[0]);
         $action = isset($params[1]) ? $params[1] : 'index';
+        if (!file_exists(DIR . '/controllers/' . $controller . '.controller.php')) {
+            header("Location: /");
+            exit();
+        }
         require_once(DIR . '/controllers/' . $controller . '.controller.php');
-        $controller = new $controller();
+        $controller = "caducee\\Controller\\" . $controller;
+            $controller = new $controller();
 
         if (method_exists($controller, $action)) {
             unset($params[0]);
@@ -28,19 +41,25 @@ try {
             echo "La page recherchée n'existe pas";
         }
     } else {
-        //Si pas de page on rend la page d'acceuil
-        require_once(DIR . '/controllers/Main.php');
-        $controller = new Main();
-        $controller->index();
+        require_once(DIR . "/controllers/Home.controller.php");
+        $home = new Home();
+        $home->index();
     }
 }
+catch (AccessException $e) {
+    // TODO : Qlq chose de propre quand on a pas les droits d'acces
+    ignore_user_abort(true);
+    echo "ho";
+    header("Location: /home");
+    echo "hey";
+}
 catch (PDOException $e) {
-    require_once(DIR . '/controllers/Error.controller.php');
+    require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->pdo($e);
 }
 catch (Exception $e) {
-    require_once(DIR . '/controllers/Error.controller.php');
+    require_once(DIR . '/controllers/Error.php');
     $controller = new ErrorC();
     $controller->index($e);
 }

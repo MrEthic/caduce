@@ -82,7 +82,7 @@ section .ctn {
 
 h1 {
     font-size: 50px;
-    text-decoration: underline solid #00BFFF 4px;
+    text-decoration: underline solid red 4px;
 }
 
 a {
@@ -319,7 +319,7 @@ a {
     text-align: center;
     padding: 65px 0;
     font-size: 50px;
-    text-decoration: underline solid #00BFFF 4px;
+    text-decoration: underline solid red 4px;
 }
 
 #home-2 .ctn .features {
@@ -330,7 +330,7 @@ a {
 
 #home-2 .ctn .features .feature {
     width: 250px;
-    height: auto;
+    height: 60vh;
     margin: 0 25px;
     background-color: var(--color-white);
     transition: transform 1s ease, box-shadow 1s ease;
@@ -382,15 +382,12 @@ a {
 }
 
 #home-3 {
-    display: block;
+    display: flex;
     align-content: center;
-    margin-top: 100px;
-    height: auto;
 }
 
 #home-3 form {
     width: 40%;
-    height: auto;
     margin: auto;
     background-color: white;
     padding: 20px 50px;
@@ -402,7 +399,7 @@ a {
 #home-3 form h1 {
     width: 100%;
     font-size: 50px;
-    text-decoration: underline solid #00BFFF 4px;
+    text-decoration: underline solid red 4px;
 }
 
 #home-3 form h2 {
@@ -579,7 +576,7 @@ a {
 }
 
 form#createForm h3 {
-    text-decoration: underline solid #00BFFF 2px;
+    text-decoration: underline solid red 2px;
     margin-bottom: 10px;
 }
 
@@ -665,7 +662,7 @@ form#createForm #createSubmit:hover {
 }
 
 #userSearchModal form#advancedSearch div h3 {
-    text-decoration: underline solid #00BFFF 2px;
+    text-decoration: underline solid red 2px;
 }
 
 form#advancedSearch input[type="date"],

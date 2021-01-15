@@ -1,5 +1,7 @@
 <?php
 
+namespace caducee\Model;
+
 /**
  * Class Model
  *
@@ -30,6 +32,8 @@ abstract class Model {
      */
     public string $id;
 
+    public string $from;
+
     /**
      * Initiate a DataBase Connection using PDO
      * @return void
@@ -38,6 +42,7 @@ abstract class Model {
         $this->conn = null;
 
         $this->conn = new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->db_user, $this->db_password);
+        $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $this->conn->exec("set names utf8");
     }
 
@@ -45,7 +50,7 @@ abstract class Model {
      * Return the row corresponding to the id;
      * @return Array
      */
-    public function get_one() : Array {
+    public function get_one() {
         $sql = "SELECT * FROM " . $this->table . " WHERE " . $this->id_column . "=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([":id" => $this->id]);
