@@ -330,7 +330,7 @@ a {
 
 #home-2 .ctn .features .feature {
     width: 250px;
-    height: 60vh;
+    height: auto;
     margin: 0 25px;
     background-color: var(--color-white);
     transition: transform 1s ease, box-shadow 1s ease;
@@ -382,12 +382,16 @@ a {
 }
 
 #home-3 {
-    display: flex;
+    display: block;
     align-content: center;
+    margin-top: 100px;
+    padding:50px 0;
+    height: auto;
 }
 
 #home-3 form {
     width: 40%;
+    height: auto;
     margin: auto;
     background-color: white;
     padding: 20px 50px;
