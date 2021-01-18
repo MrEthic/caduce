@@ -2,6 +2,9 @@
 
 namespace caducee\Controller;
 
+use PDOException;
+
+
 require_once(DIR . "/controllers/Controller.php");
 
 /**
@@ -17,7 +20,7 @@ class ErrorC extends Controller
      *
      * @param Exception $e The PDO Exception
      */
-    public function pdo(Exception  $e) : void
+    public function pdo(PDOException  $e) : void
     {
         $this->render("pdo", ["code" => $e->getCode(), "msg" => $e->getMessage()]);
     }
