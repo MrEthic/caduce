@@ -17,9 +17,9 @@ $lg = [
             "title" => "Caducée",
             "title2" => "Le premier maillon de la chaîne de sauvetage",
             "content" => "L'ambulancier est le premier maillon de la chaine de sauvetage, il doit en quelques secondes prendre des
-                décisions importante pour la survie des bléssé. Rapide, clairevoyant et sûr de lui, il doit toujours
+                décisions importantes pour la survie des blessés. Rapide, clairevoyant et sûr de lui, il doit toujours
                 être au meilleur de sa forme. Caducée est une solution fiable et à moindre coût permetant de s'assurer
-                des capacité de votre personnel",
+                des capacités de votre personnel.",
             "btn-more" => "En savoir plus",
             "btn-contact" => "Nous contacter"
         ],
@@ -29,9 +29,9 @@ $lg = [
                 "title-a" => "Platformes",
                 "title-b" => " de test",
                 "desc" => "Des plateformes de tests pour mesurer :",
-                "li-1" => "Les reflexes",
+                "li-1" => "Les réflexes",
                 "li-2" => "La resistance au stress sonore",
-                "li-3" => "La mémoire instantané",
+                "li-3" => "La mémoire instantanée",
                 "li-4" => "La rapiditées d'éxécution"
             ],
             "card-2" => [
@@ -39,7 +39,7 @@ $lg = [
                 "title-b" => " Web",
                 "desc" => "Un portail web sécurisé permettant :",
                 "li-1" => "Consulter ses résultats",
-                "li-2" => "Lancer de nouveaux test",
+                "li-2" => "Lancer de nouveaux tests",
                 "li-3" => "Suivre son évolution",
                 "li-4" => "Se comparer aux autres"
             ],
@@ -55,7 +55,7 @@ $lg = [
         ],
         "sec-3" => [
             "title" => "Contactez nous",
-            "title-2" => "Pour plus d'information à propos de Caducée ou toute autres demande",
+            "title-2" => "Pour plus d'informations à propos de Caducée ou toute autre demande",
             "name" => "Votre nom et prénom :",
             "mail" => "Votre adresse mail :",
             "object" => "Objet du message :",
@@ -81,7 +81,7 @@ $lg = [
                     "title-b" => "Suspendu"
                 ]
             ],
-            "btn-adduser" => "Ajouter un utilisateurs",
+            "btn-adduser" => "Ajouter un utilisateur",
             "btn-option" => "Paramêtre des utilisateurs",
             "btn-tchat" => "Méssagerie"
         ],
@@ -89,7 +89,7 @@ $lg = [
             "title" => "Création d'un utilisateur",
             "nss" => "Numéro de sécurité social",
             "personal-info" => [
-                "title" => "Information Personnels",
+                "title" => "Informations personnelles",
                 "surname" => "Prénom",
                 "lastname" => "Nom",
                 "mail" => "Mail",
