@@ -55,7 +55,7 @@ catch (AccessException $e) {
 }
 catch (PDOException $e) {
     require_once(DIR . '/controllers/Error.php');
-    $controller = new ErrorC();
+    $controller = new Controller\ErrorC();
     $controller->pdo($e);
 }
 catch (Exception $e) {

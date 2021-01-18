@@ -7,9 +7,9 @@ define('DB_NAME', getenv('DB_NAME') ? getenv('DB_NAME') : "caducee" );
  */
 
 define("DBHOST", "localhost");
-define("DBNAME", "caduce");
-define("DBUSER", "root");
-define("DBPSWD", "");
+define("DBNAME", "caducee");
+define("DBUSER", "app");
+define("DBPSWD", "app");
 
 
 
