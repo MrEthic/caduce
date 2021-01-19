@@ -5,7 +5,7 @@ namespace caducee;
 use caducee\Controller\Home;
 use caducee\Exception\AccessException as AccessException;
 use Exception;
-use PDOException;
+use \PDOException;
 
 define("DIR", getcwd());
 
@@ -53,14 +53,14 @@ catch (AccessException $e) {
     header("Location: /home");
     echo "hey";
 }
-catch (PDOException $e) {
+catch (\PDOException $e) {
     require_once(DIR . '/controllers/Error.php');
-    $controller = new ErrorC();
+    $controller = new Controller\ErrorC();
     $controller->pdo($e);
 }
 catch (Exception $e) {
     require_once(DIR . '/controllers/Error.php');
-    $controller = new ErrorC();
+    $controller = new Controller\ErrorC();
     $controller->index($e);
 }
 
