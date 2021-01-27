@@ -1,15 +1,15 @@
 version: "3.7"
 services:
   app:
-    image: ghcr.io/MrEthic/caduce:latest
-    container_name: jeremie
+    image: ghcr.io/mrethic/caduce:latest
+    container_name: caduce
     tty: true
     cap_add:
       - SYS_NICE
     expose:
       - 80
     networks:
-      - web
+      - traefik
     links:
       - db
     depends_on:
@@ -25,6 +25,9 @@ services:
       traefik.http.routers.jeremie.rule: Host(`caduce.garageisep.com`)
       traefik.http.routers.jeremie.entrypoints: web
       traefik.http.routers.jeremie.middlewares: redirect
+      # CI/CD
+      docker-ci.enable: "true"
+      docker-ci.repo-url: ghcr.io/mrethic/caduce:latest
   db:
     image: mysql
     restart: always
@@ -33,5 +36,5 @@ services:
       MYSQL_ROOT_PASSWORD: caduce
       
 networks:
-  web:
+  traefik:
     external: true
