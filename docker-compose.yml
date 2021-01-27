@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  app:
+    image: ghcr.io/MrEthic/caduce:latest
+    container_name: jeremie
+    tty: true
+    cap_add:
+      - SYS_NICE
+    expose:
+      - 80
+    networks:
+      - web
+    links:
+      - db
+    depends_on:
+      - db
+    restart: always
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.jeremie-secure.rule: Host(`caduce.garageisep.com`)
+      traefik.http.routers.jeremie-secure.entrypoints: websecure
+      traefik.http.routers.jeremie-secure.tls.certresolver: myhttpchallenge
+      # https redirection
+      traefik.http.middlewares.redirect.redirectscheme.scheme: https
+      traefik.http.routers.jeremie.rule: Host(`caduce.garageisep.com`)
+      traefik.http.routers.jeremie.entrypoints: web
+      traefik.http.routers.jeremie.middlewares: redirect
+  db:
+    image: mysql
+    restart: always
+    container_name: jeremie-db
+    environment:
+      MYSQL_ROOT_PASSWORD: caduce
+      
+networks:
+  web:
+    external: true
