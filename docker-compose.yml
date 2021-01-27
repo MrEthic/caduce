@@ -2,7 +2,7 @@ version: "3.7"
 services:
   app:
     image: ghcr.io/mrethic/caduce:latest
-    container_name: jeremie
+    container_name: caduce
     tty: true
     cap_add:
       - SYS_NICE
