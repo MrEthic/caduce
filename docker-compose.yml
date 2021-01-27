@@ -25,6 +25,9 @@ services:
       traefik.http.routers.jeremie.rule: Host(`caduce.garageisep.com`)
       traefik.http.routers.jeremie.entrypoints: web
       traefik.http.routers.jeremie.middlewares: redirect
+      # CI/CD
+      docker-ci.enable: "true"
+      docker-ci.repo-url: ghcr.io/MrEthic/caduce:latest
   db:
     image: mysql
     restart: always
