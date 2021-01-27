@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: ghcr.io/MrEthic/caduce:latest
+    image: ghcr.io/mrethic/caduce:latest
     container_name: jeremie
     tty: true
     cap_add:
@@ -27,7 +27,7 @@ services:
       traefik.http.routers.jeremie.middlewares: redirect
       # CI/CD
       docker-ci.enable: "true"
-      docker-ci.repo-url: ghcr.io/MrEthic/caduce:latest
+      docker-ci.repo-url: ghcr.io/mrethic/caduce:latest
   db:
     image: mysql
     restart: always
