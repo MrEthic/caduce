@@ -1,4 +1,7 @@
 # PROJET CADUCEE
+
+Web application project for 1st engineering year
+
 ##  Projet 1ère année ingénieur Isep
 
 Dans le cadre de l'apprentissage par projet (APP) de notre première année d'école d'ingénieur Isep à Paris, nous devons réaliser un projet liant informatique et éléctronique.
